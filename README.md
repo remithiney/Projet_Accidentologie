@@ -1,13 +1,17 @@
-Project Name
+Projet Accidentologie
 ==============================
 
-This repo is a Starting Pack for DS projects. You can rearrange the structure to make it fits your project.
+Ce repo contient le projet Datascientest sur l'accidentologie de la promotion 2024.
+Par: 
+Rachelle LEHOUEDEC
+Emmanuel GAUTIER
+Rémi THINEY
 
 Project Organization
 ------------
 
     ├── LICENSE
-    ├── README.md          <- The top-level README for developers using this project.
+    ├── README.md          
     ├── data               <- Should be in your computer but not on Github (only in .gitignore)
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
