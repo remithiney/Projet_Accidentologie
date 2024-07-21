@@ -1,10 +1,10 @@
 Projet Accidentologie
 ==============================
 
-Ce repo contient le projet Datascientest sur l'accidentologie de la promotion 2024.
+Ce repo contient le projet Datascientest de la promotion Février 2024 qui a pour thème les accidents routiers en France de 2005 à 2022.
 Par: 
-Rachelle LEHOUEDEC
 Emmanuel GAUTIER
+Erika MERONVILLE
 Rémi THINEY
 
 Project Organization
