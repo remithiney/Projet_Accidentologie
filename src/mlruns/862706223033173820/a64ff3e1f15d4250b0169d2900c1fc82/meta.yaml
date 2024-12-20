@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/Telechargements/Datascientest/Git_GitHub/repos/Projet_Accidentologie/src/mlruns/862706223033173820/a64ff3e1f15d4250b0169d2900c1fc82/artifacts
+end_time: 1734704846330
+entry_point_name: ''
+experiment_id: '862706223033173820'
+lifecycle_stage: active
+run_id: a64ff3e1f15d4250b0169d2900c1fc82
+run_name: Training_XGBoost
+run_uuid: a64ff3e1f15d4250b0169d2900c1fc82
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734704826768
+status: 4
+tags: []
+user_id: remi

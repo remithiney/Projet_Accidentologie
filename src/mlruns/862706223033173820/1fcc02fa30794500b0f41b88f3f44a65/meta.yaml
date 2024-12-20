@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/Telechargements/Datascientest/Git_GitHub/repos/Projet_Accidentologie/src/mlruns/862706223033173820/1fcc02fa30794500b0f41b88f3f44a65/artifacts
+end_time: 1734705521726
+entry_point_name: ''
+experiment_id: '862706223033173820'
+lifecycle_stage: active
+run_id: 1fcc02fa30794500b0f41b88f3f44a65
+run_name: Build_Full_Pipeline
+run_uuid: 1fcc02fa30794500b0f41b88f3f44a65
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734705521569
+status: 4
+tags: []
+user_id: remi

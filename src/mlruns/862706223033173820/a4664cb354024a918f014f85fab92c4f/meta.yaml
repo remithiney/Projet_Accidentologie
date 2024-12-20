@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/Telechargements/Datascientest/Git_GitHub/repos/Projet_Accidentologie/src/mlruns/862706223033173820/a4664cb354024a918f014f85fab92c4f/artifacts
+end_time: 1734704318726
+entry_point_name: ''
+experiment_id: '862706223033173820'
+lifecycle_stage: active
+run_id: a4664cb354024a918f014f85fab92c4f
+run_name: Accidents_Workflow
+run_uuid: a4664cb354024a918f014f85fab92c4f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734704309659
+status: 3
+tags: []
+user_id: remi

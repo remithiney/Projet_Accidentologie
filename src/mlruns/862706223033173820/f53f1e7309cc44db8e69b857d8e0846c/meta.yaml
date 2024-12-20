@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/Telechargements/Datascientest/Git_GitHub/repos/Projet_Accidentologie/src/mlruns/862706223033173820/f53f1e7309cc44db8e69b857d8e0846c/artifacts
+end_time: 1734704826466
+entry_point_name: ''
+experiment_id: '862706223033173820'
+lifecycle_stage: active
+run_id: f53f1e7309cc44db8e69b857d8e0846c
+run_name: Training_RandomForest
+run_uuid: f53f1e7309cc44db8e69b857d8e0846c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734704803445
+status: 4
+tags: []
+user_id: remi

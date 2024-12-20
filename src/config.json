@@ -1,0 +1,65 @@
+{
+  "path_to_csvs": "../data/raw",
+  "path_to_processed_csv": "../data/processed",
+  "features_fusion_path": "features_fusion.json",
+  "path_to_reg": "regions.csv",
+  "encodings": ["utf-8", "latin1", "ISO-8859-1"],
+  "prefixes": ["caracteristiques", "lieux", "usagers", "vehicules"],
+  "years": [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022],
+  "logs": "log.txt",
+  "sweetviz_input_folder": "../data/raw",
+  "sweetviz_output_folder": "../reports/vis",
+  "years_to_process": [2019, 2020, 2021, 2022],
+  "missing_threshold": 0.8,
+  "features_to_drop": {
+    "caracteristiques": ["com", "adr", "lat", "long"],
+    "lieux": ["voie", "v1", "v2", "larrout", "pr", "pr1"],
+    "usagers": ["etatp", "catu"],
+    "vehicules": ["occutc"]
+  },
+  "model_result_path": "reports/results.txt",
+  "model_parameters": {
+    "feature_selection": {
+      "variance_threshold": [0.01],
+      "importance_threshold": [0.01],
+      "correlation_threshold": [0.9]
+    },
+    "decision_thresholds": [0.5],
+    "scoring_metrics": ["recall"],
+    "models": {
+      "RandomForest": {
+        "params": {
+          "classifier__n_estimators": [100, 300, 500],
+          "classifier__max_depth": [10, 50, null],
+          "classifier__min_samples_split": [2, 10],
+          "classifier__min_samples_leaf": [1, 4],
+          "classifier__bootstrap": [true, false]
+        }
+      },
+      "XGBoost": {
+        "params": {
+          "classifier__n_estimators": [100, 300],
+          "classifier__max_depth": [3, 6],
+          "classifier__learning_rate": [0.01, 0.1],
+          "classifier__subsample": [0.5, 1.0],
+          "classifier__colsample_bytree": [0.5, 1.0]
+        }
+      },
+      "LightGBM": {
+        "params": {
+          "classifier__num_leaves": [31, 100],
+          "classifier__max_depth": [-1, 20],
+          "classifier__learning_rate": [0.01, 0.1],
+          "classifier__n_estimators": [100, 300]
+        }
+      },
+      "LogisticRegression": {
+        "params": {
+          "classifier__penalty": ["l2"],
+          "classifier__C": [0.1, 1, 10],
+          "classifier__solver": ["liblinear", "saga"]
+        }
+      }
+    }
+  }
+}

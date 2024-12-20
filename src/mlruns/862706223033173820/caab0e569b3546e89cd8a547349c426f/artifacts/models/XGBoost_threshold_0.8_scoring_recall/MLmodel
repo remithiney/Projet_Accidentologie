@@ -1,0 +1,20 @@
+artifact_path: models/XGBoost_threshold_0.8_scoring_recall
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.9.21
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.0
+mlflow_version: 2.19.0
+model_size_bytes: 2464251
+model_uuid: fd1eac9544314f8d8b882836bc233cd1
+run_id: caab0e569b3546e89cd8a547349c426f
+utc_time_created: '2024-12-20 13:06:16.084546'

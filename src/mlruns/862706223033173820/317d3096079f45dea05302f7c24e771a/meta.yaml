@@ -1,0 +1,16 @@
+artifact_uri: file:///E:/Telechargements/Datascientest/Git_GitHub/repos/Projet_Accidentologie/src/mlruns/862706223033173820/317d3096079f45dea05302f7c24e771a/artifacts
+end_time: 1734704607117
+entry_point_name: ''
+experiment_id: '862706223033173820'
+lifecycle_stage: active
+run_id: 317d3096079f45dea05302f7c24e771a
+run_name: 'LogisticRegression_params_{''variance_threshold'': 0.01, ''importance_threshold'':
+  0.01, ''correlation_threshold'': 0.9}'
+run_uuid: 317d3096079f45dea05302f7c24e771a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734704606749
+status: 4
+tags: []
+user_id: remi

@@ -1,0 +1,16 @@
+artifact_uri: file:///E:/Telechargements/Datascientest/Git_GitHub/repos/Projet_Accidentologie/src/mlruns/862706223033173820/71fd01e96beb4ef2b3997fb2bf5376df/artifacts
+end_time: 1734704315812
+entry_point_name: ''
+experiment_id: '862706223033173820'
+lifecycle_stage: active
+run_id: 71fd01e96beb4ef2b3997fb2bf5376df
+run_name: 'XGBoost_params_{''variance_threshold'': 0.01, ''importance_threshold'':
+  0.01, ''correlation_threshold'': 0.9}'
+run_uuid: 71fd01e96beb4ef2b3997fb2bf5376df
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734704314233
+status: 4
+tags: []
+user_id: remi

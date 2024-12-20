@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/Telechargements/Datascientest/Git_GitHub/repos/Projet_Accidentologie/src/mlruns/862706223033173820/5c2894e281094004871fa0dc0e690c65/artifacts
+end_time: 1734704594510
+entry_point_name: ''
+experiment_id: '862706223033173820'
+lifecycle_stage: active
+run_id: 5c2894e281094004871fa0dc0e690c65
+run_name: Training_LogisticRegression
+run_uuid: 5c2894e281094004871fa0dc0e690c65
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734704594460
+status: 4
+tags: []
+user_id: remi

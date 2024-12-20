@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/Telechargements/Datascientest/Git_GitHub/repos/Projet_Accidentologie/src/mlruns/862706223033173820/3ac549557ee9458e8b9dbe19867c86a4/artifacts
+end_time: 1734704606318
+entry_point_name: ''
+experiment_id: '862706223033173820'
+lifecycle_stage: active
+run_id: 3ac549557ee9458e8b9dbe19867c86a4
+run_name: XGBoost_threshold_0.5_scoring_recall
+run_uuid: 3ac549557ee9458e8b9dbe19867c86a4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734704606194
+status: 4
+tags: []
+user_id: remi

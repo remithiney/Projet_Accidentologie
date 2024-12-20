@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/Telechargements/Datascientest/Git_GitHub/repos/Projet_Accidentologie/src/mlruns/862706223033173820/44e5256a0c03449591251c32c9dd8c01/artifacts
+end_time: 1734704867645
+entry_point_name: ''
+experiment_id: '862706223033173820'
+lifecycle_stage: active
+run_id: 44e5256a0c03449591251c32c9dd8c01
+run_name: LightGBM_threshold_0.5_scoring_recall
+run_uuid: 44e5256a0c03449591251c32c9dd8c01
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734704846600
+status: 4
+tags: []
+user_id: remi

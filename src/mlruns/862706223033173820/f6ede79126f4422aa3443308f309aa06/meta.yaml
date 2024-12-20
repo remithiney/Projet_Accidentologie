@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/Telechargements/Datascientest/Git_GitHub/repos/Projet_Accidentologie/src/mlruns/862706223033173820/f6ede79126f4422aa3443308f309aa06/artifacts
+end_time: 1734700924113
+entry_point_name: ''
+experiment_id: '862706223033173820'
+lifecycle_stage: active
+run_id: f6ede79126f4422aa3443308f309aa06
+run_name: Identify_Columns
+run_uuid: f6ede79126f4422aa3443308f309aa06
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734700924056
+status: 3
+tags: []
+user_id: remi

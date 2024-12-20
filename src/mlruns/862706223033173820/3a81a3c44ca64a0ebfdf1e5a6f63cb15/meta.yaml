@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/Telechargements/Datascientest/Git_GitHub/repos/Projet_Accidentologie/src/mlruns/862706223033173820/3a81a3c44ca64a0ebfdf1e5a6f63cb15/artifacts
+end_time: 1734700758345
+entry_point_name: ''
+experiment_id: '862706223033173820'
+lifecycle_stage: active
+run_id: 3a81a3c44ca64a0ebfdf1e5a6f63cb15
+run_name: Training_LightGBM
+run_uuid: 3a81a3c44ca64a0ebfdf1e5a6f63cb15
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734700678464
+status: 3
+tags: []
+user_id: remi

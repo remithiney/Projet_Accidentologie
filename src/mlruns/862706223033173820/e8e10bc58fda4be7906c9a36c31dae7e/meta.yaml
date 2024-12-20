@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/Telechargements/Datascientest/Git_GitHub/repos/Projet_Accidentologie/src/mlruns/862706223033173820/e8e10bc58fda4be7906c9a36c31dae7e/artifacts
+end_time: 1734701078711
+entry_point_name: ''
+experiment_id: '862706223033173820'
+lifecycle_stage: active
+run_id: e8e10bc58fda4be7906c9a36c31dae7e
+run_name: RandomForest_threshold_0.4_scoring_recall
+run_uuid: e8e10bc58fda4be7906c9a36c31dae7e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734700924187
+status: 3
+tags: []
+user_id: remi

@@ -1,0 +1,30 @@
+
+All the 15 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+15 fits failed with the following error:
+Traceback (most recent call last):
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\sklearn\model_selection\_validation.py", line 866, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\sklearn\base.py", line 1389, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\imblearn\pipeline.py", line 329, in fit
+    Xt, yt = self._fit(X, y, routed_params)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\imblearn\pipeline.py", line 255, in _fit
+    X, fitted_transformer = fit_transform_one_cached(
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\joblib\memory.py", line 312, in __call__
+    return self.func(*args, **kwargs)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\imblearn\pipeline.py", line 1104, in _fit_transform_one
+    res = transformer.fit_transform(X, y, **params.get("fit_transform", {}))
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\sklearn\utils\_set_output.py", line 319, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\sklearn\base.py", line 921, in fit_transform
+    return self.fit(X, y, **fit_params).transform(X)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\sklearn\utils\_set_output.py", line 319, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\feature_selector.py", line 54, in transform
+    X = pd.DataFrame(X, columns=self.feature_names_in_)
+AttributeError: 'FeatureSelector' object has no attribute 'feature_names_in_'

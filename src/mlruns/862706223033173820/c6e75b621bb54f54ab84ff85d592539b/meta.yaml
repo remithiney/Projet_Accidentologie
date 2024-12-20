@@ -1,0 +1,16 @@
+artifact_uri: file:///E:/Telechargements/Datascientest/Git_GitHub/repos/Projet_Accidentologie/src/mlruns/862706223033173820/c6e75b621bb54f54ab84ff85d592539b/artifacts
+end_time: 1734700068876
+entry_point_name: ''
+experiment_id: '862706223033173820'
+lifecycle_stage: active
+run_id: c6e75b621bb54f54ab84ff85d592539b
+run_name: 'LightGBM_params_{''variance_threshold'': 0.01, ''importance_threshold'':
+  0.01, ''correlation_threshold'': 0.9}'
+run_uuid: c6e75b621bb54f54ab84ff85d592539b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734699979652
+status: 3
+tags: []
+user_id: remi

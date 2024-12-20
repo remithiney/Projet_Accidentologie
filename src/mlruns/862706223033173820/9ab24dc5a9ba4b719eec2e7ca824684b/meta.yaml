@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/Telechargements/Datascientest/Git_GitHub/repos/Projet_Accidentologie/src/mlruns/862706223033173820/9ab24dc5a9ba4b719eec2e7ca824684b/artifacts
+end_time: 1734704887320
+entry_point_name: ''
+experiment_id: '862706223033173820'
+lifecycle_stage: active
+run_id: 9ab24dc5a9ba4b719eec2e7ca824684b
+run_name: LogisticRegression_threshold_0.5_scoring_recall
+run_uuid: 9ab24dc5a9ba4b719eec2e7ca824684b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734704867891
+status: 4
+tags: []
+user_id: remi

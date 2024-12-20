@@ -1,0 +1,161 @@
+2024-12-20 15:38:37,750 - INFO - Loading data from ../data/processed/merged_data_2019_2022.csv
+2024-12-20 15:38:40,694 - INFO - Data loaded successfully
+2024-12-20 15:38:41,174 - INFO - Building pipeline for RandomForestClassifier()...
+2024-12-20 15:38:41,225 - INFO - Identifying column types...
+2024-12-20 15:38:41,288 - INFO - Building preprocessor...
+2024-12-20 15:38:41,291 - ERROR - Error while building preprocessor.
+2024-12-20 15:38:41,292 - ERROR - Traceback (most recent call last):
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\pipeline_builder.py", line 44, in build_preprocessor
+    numerical_pipeline = Pipeline([
+NameError: name 'Pipeline' is not defined
+
+2024-12-20 15:38:41,294 - ERROR - Error while building pipeline.
+2024-12-20 15:38:41,295 - ERROR - Traceback (most recent call last):
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\pipeline_builder.py", line 74, in build_pipeline
+    preprocessor = self.build_preprocessor(numerical_cols, categorical_cols)
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\pipeline_builder.py", line 44, in build_preprocessor
+    numerical_pipeline = Pipeline([
+NameError: name 'Pipeline' is not defined
+
+2024-12-20 15:38:41,298 - ERROR - Error processing model RandomForest: name 'Pipeline' is not defined
+2024-12-20 15:38:41,395 - INFO - Building pipeline for XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=None, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=None, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=None,
+              num_parallel_tree=None, random_state=None, ...)...
+2024-12-20 15:38:41,445 - INFO - Identifying column types...
+2024-12-20 15:38:41,506 - INFO - Building preprocessor...
+2024-12-20 15:38:41,509 - ERROR - Error while building preprocessor.
+2024-12-20 15:38:41,509 - ERROR - Traceback (most recent call last):
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\pipeline_builder.py", line 44, in build_preprocessor
+    numerical_pipeline = Pipeline([
+NameError: name 'Pipeline' is not defined
+
+2024-12-20 15:38:41,512 - ERROR - Error while building pipeline.
+2024-12-20 15:38:41,512 - ERROR - Traceback (most recent call last):
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\pipeline_builder.py", line 74, in build_pipeline
+    preprocessor = self.build_preprocessor(numerical_cols, categorical_cols)
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\pipeline_builder.py", line 44, in build_preprocessor
+    numerical_pipeline = Pipeline([
+NameError: name 'Pipeline' is not defined
+
+2024-12-20 15:38:41,514 - ERROR - Error processing model XGBoost: name 'Pipeline' is not defined
+2024-12-20 15:38:41,611 - INFO - Building pipeline for LGBMClassifier()...
+2024-12-20 15:38:41,660 - INFO - Identifying column types...
+2024-12-20 15:38:41,722 - INFO - Building preprocessor...
+2024-12-20 15:38:41,725 - ERROR - Error while building preprocessor.
+2024-12-20 15:38:41,725 - ERROR - Traceback (most recent call last):
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\pipeline_builder.py", line 44, in build_preprocessor
+    numerical_pipeline = Pipeline([
+NameError: name 'Pipeline' is not defined
+
+2024-12-20 15:38:41,728 - ERROR - Error while building pipeline.
+2024-12-20 15:38:41,728 - ERROR - Traceback (most recent call last):
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\pipeline_builder.py", line 74, in build_pipeline
+    preprocessor = self.build_preprocessor(numerical_cols, categorical_cols)
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\pipeline_builder.py", line 44, in build_preprocessor
+    numerical_pipeline = Pipeline([
+NameError: name 'Pipeline' is not defined
+
+2024-12-20 15:38:41,731 - ERROR - Error processing model LightGBM: name 'Pipeline' is not defined
+2024-12-20 15:38:41,827 - INFO - Building pipeline for LogisticRegression()...
+2024-12-20 15:38:41,875 - INFO - Identifying column types...
+2024-12-20 15:38:41,940 - INFO - Building preprocessor...
+2024-12-20 15:38:41,943 - ERROR - Error while building preprocessor.
+2024-12-20 15:38:41,944 - ERROR - Traceback (most recent call last):
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\pipeline_builder.py", line 44, in build_preprocessor
+    numerical_pipeline = Pipeline([
+NameError: name 'Pipeline' is not defined
+
+2024-12-20 15:38:41,947 - ERROR - Error while building pipeline.
+2024-12-20 15:38:41,947 - ERROR - Traceback (most recent call last):
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\pipeline_builder.py", line 74, in build_pipeline
+    preprocessor = self.build_preprocessor(numerical_cols, categorical_cols)
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\pipeline_builder.py", line 44, in build_preprocessor
+    numerical_pipeline = Pipeline([
+NameError: name 'Pipeline' is not defined
+
+2024-12-20 15:38:41,950 - ERROR - Error processing model LogisticRegression: name 'Pipeline' is not defined
+2024-12-20 15:38:41,958 - INFO - Empty DataFrame
+Columns: []
+Index: []
+2024-12-20 15:40:32,469 - INFO - Loading data from ../data/processed/merged_data_2019_2022.csv
+2024-12-20 15:40:34,978 - INFO - Data loaded successfully
+2024-12-20 15:40:35,448 - INFO - Building pipeline for RandomForestClassifier()...
+2024-12-20 15:40:35,499 - INFO - Identifying column types...
+2024-12-20 15:40:35,561 - INFO - Building preprocessor...
+2024-12-20 15:40:35,564 - INFO - Preprocessor built successfully.
+2024-12-20 15:40:35,580 - INFO - Pipeline built successfully.
+2024-12-20 15:40:35,680 - INFO - Starting model training for RandomForest...
+2024-12-20 15:42:43,580 - INFO - Training completed in 127.90 seconds
+2024-12-20 15:42:43,580 - INFO - Best parameters: {'classifier__n_estimators': 300, 'classifier__min_samples_split': 10, 'classifier__min_samples_leaf': 1, 'classifier__max_depth': 10, 'classifier__bootstrap': True}
+2024-12-20 15:42:48,158 - INFO - Evaluating model: RandomForest
+2024-12-20 15:42:48,487 - INFO - Calculating metrics...
+2024-12-20 15:42:48,495 - INFO - F1-score: 0.2597
+2024-12-20 15:42:48,496 - INFO - Cohen Kappa: 0.0386
+2024-12-20 15:42:48,496 - INFO - MCC: 0.0899
+2024-12-20 15:42:48,496 - INFO - Recall: 0.4215
+2024-12-20 15:42:48,496 - INFO - Balanced Accuracy: 0.3308
+2024-12-20 15:42:48,496 - ERROR - Error during model evaluation.
+2024-12-20 15:42:48,532 - ERROR - Traceback (most recent call last):
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\evaluator.py", line 29, in evaluate_model
+    metrics = self.metrics_calculator.calculate_metrics(y_test, y_pred, y_proba)
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\metrics_calculator.py", line 35, in calculate_metrics
+    metrics['roc_auc'] = roc_auc_score(y_test, y_proba)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\sklearn\utils\_param_validation.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\sklearn\metrics\_ranking.py", line 630, in roc_auc_score
+    raise ValueError("multi_class must be in ('ovo', 'ovr')")
+ValueError: multi_class must be in ('ovo', 'ovr')
+
+2024-12-20 15:42:48,540 - ERROR - Error processing model RandomForest: multi_class must be in ('ovo', 'ovr')
+2024-12-20 15:42:48,687 - INFO - Building pipeline for XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=None, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=None, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=None,
+              num_parallel_tree=None, random_state=None, ...)...
+2024-12-20 15:42:48,739 - INFO - Identifying column types...
+2024-12-20 15:42:48,805 - INFO - Building preprocessor...
+2024-12-20 15:42:48,808 - INFO - Preprocessor built successfully.
+2024-12-20 15:42:48,825 - INFO - Pipeline built successfully.
+2024-12-20 15:42:48,940 - INFO - Starting model training for XGBoost...
+2024-12-20 15:44:20,240 - INFO - Training completed in 91.30 seconds
+2024-12-20 15:44:20,240 - INFO - Best parameters: {'classifier__subsample': 1.0, 'classifier__n_estimators': 100, 'classifier__max_depth': 6, 'classifier__learning_rate': 0.1, 'classifier__colsample_bytree': 1.0}
+2024-12-20 15:44:23,724 - INFO - Evaluating model: XGBoost
+2024-12-20 15:44:23,819 - INFO - Calculating metrics...
+2024-12-20 15:44:23,834 - INFO - F1-score: 0.2566
+2024-12-20 15:44:23,834 - INFO - Cohen Kappa: 0.0198
+2024-12-20 15:44:23,834 - INFO - MCC: 0.0705
+2024-12-20 15:44:23,834 - INFO - Recall: 0.4230
+2024-12-20 15:44:23,834 - INFO - Balanced Accuracy: 0.2958
+2024-12-20 15:44:23,835 - ERROR - Error during model evaluation.
+2024-12-20 15:44:23,835 - ERROR - Traceback (most recent call last):
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\evaluator.py", line 29, in evaluate_model
+    metrics = self.metrics_calculator.calculate_metrics(y_test, y_pred, y_proba)
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\metrics_calculator.py", line 35, in calculate_metrics
+    metrics['roc_auc'] = roc_auc_score(y_test, y_proba)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\sklearn\utils\_param_validation.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\sklearn\metrics\_ranking.py", line 630, in roc_auc_score
+    raise ValueError("multi_class must be in ('ovo', 'ovr')")
+ValueError: multi_class must be in ('ovo', 'ovr')
+
+2024-12-20 15:44:23,851 - ERROR - Error processing model XGBoost: multi_class must be in ('ovo', 'ovr')
+2024-12-20 15:44:23,986 - INFO - Building pipeline for LGBMClassifier()...
+2024-12-20 15:44:24,042 - INFO - Identifying column types...
+2024-12-20 15:44:24,108 - INFO - Building preprocessor...
+2024-12-20 15:44:24,111 - INFO - Preprocessor built successfully.
+2024-12-20 15:44:24,130 - INFO - Pipeline built successfully.
+2024-12-20 15:44:24,242 - INFO - Starting model training for LightGBM...

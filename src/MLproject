@@ -1,0 +1,12 @@
+name: AccidentPrediction
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    parameters:
+      data_path: {type: str, default: "data/processed/merged_data.csv"}
+      model: {type: str, default: "RandomForest"}
+      n_estimators: {type: int, default: 100}
+    command: >
+      python train.py --data_path {data_path} --model {model} --n_estimators {n_estimators}

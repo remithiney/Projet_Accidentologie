@@ -1,0 +1,20 @@
+artifact_path: models/LightGBM_threshold_0.8_scoring_recall
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.9.21
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.0
+mlflow_version: 2.19.0
+model_size_bytes: 2699591
+model_uuid: 58c3edb6071d4a76a4cb368f6423ec49
+run_id: 6294a9c11e84444c98e7e486000a7f83
+utc_time_created: '2024-12-20 13:07:45.077468'
