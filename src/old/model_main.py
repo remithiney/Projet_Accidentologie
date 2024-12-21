@@ -11,7 +11,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
 from models.data_loader import DataLoader
 from models.evaluator import Evaluator
-from models.piepline_builder_old import PipelineBuilder
+from old.piepline_builder_old import PipelineBuilder
 from models.trainer_old import Trainer
 
 # Charger le fichier de configuration

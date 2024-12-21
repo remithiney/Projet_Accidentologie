@@ -9,10 +9,12 @@ class FeatureSelector(BaseEstimator, TransformerMixin):
                  importance_threshold=0.01, 
                  variance_threshold=0.01, 
                  correlation_threshold=0.8, 
+                 k_best=80, 
                  random_state=42):
         self.importance_threshold = importance_threshold
         self.variance_threshold = variance_threshold
         self.correlation_threshold = correlation_threshold
+        self.k_best = k_best
         self.random_state = random_state
         self.selected_features = None
         self.feature_importances_ = None
@@ -27,10 +29,18 @@ class FeatureSelector(BaseEstimator, TransformerMixin):
     def _select_by_importance(self, X, y):
         model = RandomForestClassifier(random_state=self.random_state)
         model.fit(X, y)
-        self.feature_importances_ = model.feature_importances_
 
-        # Filtrer par importance
-        important_features = X.columns[self.feature_importances_ > self.importance_threshold]
+        # Trier les caractéristiques par importance
+        self.feature_importances_ = model.feature_importances_
+        sorted_indices = np.argsort(self.feature_importances_)[::-1]
+
+        # Sélectionner les k meilleures caractéristiques si k_best est défini
+        if self.k_best is not None:
+            top_k_indices = sorted_indices[:self.k_best]
+            important_features = X.columns[top_k_indices]
+        else:
+            important_features = X.columns[np.argsort(self.feature_importances_)[::-1]]
+
         return X[important_features]
 
     def _remove_high_correlation(self, X):
@@ -50,7 +60,7 @@ class FeatureSelector(BaseEstimator, TransformerMixin):
         X = self._remove_low_variance(X)
         X = self._select_by_importance(X, y)
         X = self._remove_high_correlation(X)
-        #X = self._apply_rfe(X, y)
+        #X = self._apply_rfe(X, y) 
 
         self.selected_features = X.columns
         return self

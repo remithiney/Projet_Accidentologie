@@ -25,7 +25,7 @@
       "correlation_threshold": [0.9]
     },
     "decision_thresholds": [0.5],
-    "scoring_metrics": ["recall"],
+    "scoring_metrics": ["f1"],
     "models": {
       "RandomForest": {
         "params": {

@@ -11,7 +11,7 @@ class DataLoader:
             self.logger.info(f"Loading data from {file_path}")
             data = pd.read_csv(file_path)
             X = data.drop(columns=[target_column])
-            y = data[target_column]-1
+            y = data[target_column]-1 # Commencer à 0
 
             # Pour accélérer le temps de calcul on va faire un premier échantillonage
             _, X_sampled, _, y_sampled = train_test_split(X, y, test_size=sample_ratio, random_state=random_state, stratify=y)  

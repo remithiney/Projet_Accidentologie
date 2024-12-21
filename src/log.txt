@@ -159,3 +159,928 @@ ValueError: multi_class must be in ('ovo', 'ovr')
 2024-12-20 15:44:24,111 - INFO - Preprocessor built successfully.
 2024-12-20 15:44:24,130 - INFO - Pipeline built successfully.
 2024-12-20 15:44:24,242 - INFO - Starting model training for LightGBM...
+2024-12-20 16:06:31,447 - INFO - Loading data from ../data/processed/merged_data_2019_2022.csv
+2024-12-20 16:06:33,968 - INFO - Data loaded successfully
+2024-12-20 16:06:34,498 - INFO - Building pipeline for RandomForestClassifier()...
+2024-12-20 16:06:34,551 - INFO - Identifying column types...
+2024-12-20 16:06:34,618 - INFO - Building preprocessor...
+2024-12-20 16:06:34,620 - INFO - Preprocessor built successfully.
+2024-12-20 16:06:34,637 - INFO - Pipeline built successfully.
+2024-12-20 16:06:34,748 - INFO - Starting model training for RandomForest...
+2024-12-20 16:08:36,090 - INFO - Training completed in 121.34 seconds
+2024-12-20 16:08:36,090 - INFO - Best parameters: {'classifier__n_estimators': 300, 'classifier__min_samples_split': 10, 'classifier__min_samples_leaf': 1, 'classifier__max_depth': 10, 'classifier__bootstrap': True}
+2024-12-20 16:08:41,556 - INFO - Evaluating model: RandomForest
+2024-12-20 16:08:41,855 - INFO - Calculating metrics...
+2024-12-20 16:08:41,863 - INFO - F1-score: 0.2597
+2024-12-20 16:08:41,863 - INFO - Cohen Kappa: 0.0383
+2024-12-20 16:08:41,863 - INFO - MCC: 0.0902
+2024-12-20 16:08:41,863 - INFO - Recall: 0.4218
+2024-12-20 16:08:41,863 - INFO - Balanced Accuracy: 0.3319
+2024-12-20 16:08:41,864 - ERROR - Error during model evaluation.
+2024-12-20 16:08:41,898 - ERROR - Traceback (most recent call last):
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\evaluator.py", line 29, in evaluate_model
+    metrics = self.metrics_calculator.calculate_metrics(y_test, y_pred, y_proba)
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\metrics_calculator.py", line 35, in calculate_metrics
+    metrics['roc_auc'] = roc_auc_score(y_test, y_proba)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\sklearn\utils\_param_validation.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\sklearn\metrics\_ranking.py", line 630, in roc_auc_score
+    raise ValueError("multi_class must be in ('ovo', 'ovr')")
+ValueError: multi_class must be in ('ovo', 'ovr')
+
+2024-12-20 16:08:41,907 - ERROR - Error processing model RandomForest: multi_class must be in ('ovo', 'ovr')
+2024-12-20 16:08:42,028 - INFO - Building pipeline for XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=None, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=None, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=None,
+              num_parallel_tree=None, random_state=None, ...)...
+2024-12-20 16:08:42,079 - INFO - Identifying column types...
+2024-12-20 16:08:42,144 - INFO - Building preprocessor...
+2024-12-20 16:08:42,147 - INFO - Preprocessor built successfully.
+2024-12-20 16:08:42,164 - INFO - Pipeline built successfully.
+2024-12-20 16:08:42,279 - INFO - Starting model training for XGBoost...
+2024-12-20 16:10:02,568 - INFO - Training completed in 80.29 seconds
+2024-12-20 16:10:02,568 - INFO - Best parameters: {'classifier__subsample': 1.0, 'classifier__n_estimators': 100, 'classifier__max_depth': 6, 'classifier__learning_rate': 0.1, 'classifier__colsample_bytree': 1.0}
+2024-12-20 16:10:05,801 - INFO - Evaluating model: XGBoost
+2024-12-20 16:10:05,887 - INFO - Calculating metrics...
+2024-12-20 16:10:05,901 - INFO - F1-score: 0.2566
+2024-12-20 16:10:05,901 - INFO - Cohen Kappa: 0.0198
+2024-12-20 16:10:05,901 - INFO - MCC: 0.0705
+2024-12-20 16:10:05,901 - INFO - Recall: 0.4230
+2024-12-20 16:10:05,901 - INFO - Balanced Accuracy: 0.2958
+2024-12-20 16:10:05,902 - ERROR - Error during model evaluation.
+2024-12-20 16:10:05,903 - ERROR - Traceback (most recent call last):
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\evaluator.py", line 29, in evaluate_model
+    metrics = self.metrics_calculator.calculate_metrics(y_test, y_pred, y_proba)
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\metrics_calculator.py", line 35, in calculate_metrics
+    metrics['roc_auc'] = roc_auc_score(y_test, y_proba)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\sklearn\utils\_param_validation.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\sklearn\metrics\_ranking.py", line 630, in roc_auc_score
+    raise ValueError("multi_class must be in ('ovo', 'ovr')")
+ValueError: multi_class must be in ('ovo', 'ovr')
+
+2024-12-20 16:10:05,918 - ERROR - Error processing model XGBoost: multi_class must be in ('ovo', 'ovr')
+2024-12-20 16:10:06,051 - INFO - Building pipeline for LGBMClassifier()...
+2024-12-20 16:10:06,100 - INFO - Identifying column types...
+2024-12-20 16:10:06,161 - INFO - Building preprocessor...
+2024-12-20 16:10:06,164 - INFO - Preprocessor built successfully.
+2024-12-20 16:10:06,181 - INFO - Pipeline built successfully.
+2024-12-20 16:10:06,291 - INFO - Starting model training for LightGBM...
+2024-12-20 16:11:44,673 - INFO - Training completed in 98.38 seconds
+2024-12-20 16:11:44,673 - INFO - Best parameters: {'classifier__num_leaves': 31, 'classifier__n_estimators': 100, 'classifier__max_depth': -1, 'classifier__learning_rate': 0.01}
+2024-12-20 16:11:47,994 - INFO - Evaluating model: LightGBM
+2024-12-20 16:11:48,106 - INFO - Calculating metrics...
+2024-12-20 16:11:48,114 - INFO - F1-score: 0.2580
+2024-12-20 16:11:48,114 - INFO - Cohen Kappa: 0.0286
+2024-12-20 16:11:48,114 - INFO - MCC: 0.0786
+2024-12-20 16:11:48,114 - INFO - Recall: 0.4220
+2024-12-20 16:11:48,114 - INFO - Balanced Accuracy: 0.3149
+2024-12-20 16:11:48,115 - ERROR - Error during model evaluation.
+2024-12-20 16:11:48,115 - ERROR - Traceback (most recent call last):
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\evaluator.py", line 29, in evaluate_model
+    metrics = self.metrics_calculator.calculate_metrics(y_test, y_pred, y_proba)
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\metrics_calculator.py", line 35, in calculate_metrics
+    metrics['roc_auc'] = roc_auc_score(y_test, y_proba)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\sklearn\utils\_param_validation.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\sklearn\metrics\_ranking.py", line 630, in roc_auc_score
+    raise ValueError("multi_class must be in ('ovo', 'ovr')")
+ValueError: multi_class must be in ('ovo', 'ovr')
+
+2024-12-20 16:11:48,125 - ERROR - Error processing model LightGBM: multi_class must be in ('ovo', 'ovr')
+2024-12-20 16:11:48,240 - INFO - Building pipeline for LogisticRegression()...
+2024-12-20 16:11:48,290 - INFO - Identifying column types...
+2024-12-20 16:11:48,353 - INFO - Building preprocessor...
+2024-12-20 16:11:48,356 - INFO - Preprocessor built successfully.
+2024-12-20 16:11:48,372 - INFO - Pipeline built successfully.
+2024-12-20 16:11:48,481 - INFO - Starting model training for LogisticRegression...
+2024-12-20 16:12:52,437 - INFO - Training completed in 63.96 seconds
+2024-12-20 16:12:52,437 - INFO - Best parameters: {'classifier__solver': 'liblinear', 'classifier__penalty': 'l2', 'classifier__C': 0.1}
+2024-12-20 16:12:55,504 - INFO - Evaluating model: LogisticRegression
+2024-12-20 16:12:55,756 - INFO - Calculating metrics...
+2024-12-20 16:12:55,765 - INFO - F1-score: 0.2605
+2024-12-20 16:12:55,765 - INFO - Cohen Kappa: 0.0570
+2024-12-20 16:12:55,765 - INFO - MCC: 0.0988
+2024-12-20 16:12:55,765 - INFO - Recall: 0.4103
+2024-12-20 16:12:55,765 - INFO - Balanced Accuracy: 0.3627
+2024-12-20 16:12:55,766 - ERROR - Error during model evaluation.
+2024-12-20 16:12:55,766 - ERROR - Traceback (most recent call last):
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\evaluator.py", line 29, in evaluate_model
+    metrics = self.metrics_calculator.calculate_metrics(y_test, y_pred, y_proba)
+  File "E:\Telechargements\Datascientest\Git_GitHub\repos\Projet_Accidentologie\src\models\metrics_calculator.py", line 35, in calculate_metrics
+    metrics['roc_auc'] = roc_auc_score(y_test, y_proba)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\sklearn\utils\_param_validation.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "F:\Anaconda\envs\conda_env\lib\site-packages\sklearn\metrics\_ranking.py", line 630, in roc_auc_score
+    raise ValueError("multi_class must be in ('ovo', 'ovr')")
+ValueError: multi_class must be in ('ovo', 'ovr')
+
+2024-12-20 16:12:55,776 - ERROR - Error processing model LogisticRegression: multi_class must be in ('ovo', 'ovr')
+2024-12-20 16:12:55,797 - INFO - Empty DataFrame
+Columns: []
+Index: []
+2024-12-20 16:19:59,008 - INFO - file name = ../data/raw\caracteristiques-2019.csv
+2024-12-20 16:19:59,008 - INFO - file name = ../data/raw\caracteristiques-2020.csv
+2024-12-20 16:19:59,009 - INFO - file name = ../data/raw\caracteristiques-2021.csv
+2024-12-20 16:19:59,009 - INFO - file name = ../data/raw\caracteristiques-2022.csv
+2024-12-20 16:19:59,009 - INFO - file name = ../data/raw\lieux-2019.csv
+2024-12-20 16:19:59,011 - INFO - file name = ../data/raw\lieux-2020.csv
+2024-12-20 16:19:59,011 - INFO - file name = ../data/raw\lieux-2021.csv
+2024-12-20 16:19:59,011 - INFO - file name = ../data/raw\lieux-2022.csv
+2024-12-20 16:19:59,011 - INFO - file name = ../data/raw\usagers-2019.csv
+2024-12-20 16:19:59,012 - INFO - file name = ../data/raw\usagers-2020.csv
+2024-12-20 16:19:59,012 - INFO - file name = ../data/raw\usagers-2021.csv
+2024-12-20 16:19:59,012 - INFO - file name = ../data/raw\usagers-2022.csv
+2024-12-20 16:19:59,422 - INFO - Chargement réussi du fichier: ../data/raw\caracteristiques-2019.csv
+2024-12-20 16:19:59,422 - INFO - file name = ../data/raw\vehicules-2019.csv
+2024-12-20 16:19:59,558 - INFO - Chargement réussi du fichier: ../data/raw\lieux-2019.csv
+2024-12-20 16:19:59,558 - INFO - file name = ../data/raw\vehicules-2020.csv
+2024-12-20 16:19:59,600 - INFO - Chargement réussi du fichier: ../data/raw\lieux-2021.csv
+2024-12-20 16:19:59,600 - INFO - file name = ../data/raw\vehicules-2021.csv
+2024-12-20 16:19:59,652 - INFO - Chargement réussi du fichier: ../data/raw\lieux-2020.csv
+2024-12-20 16:19:59,652 - INFO - file name = ../data/raw\vehicules-2022.csv
+2024-12-20 16:19:59,678 - INFO - Chargement réussi du fichier: ../data/raw\lieux-2022.csv
+2024-12-20 16:19:59,854 - INFO - Chargement réussi du fichier: ../data/raw\caracteristiques-2022.csv
+2024-12-20 16:19:59,911 - INFO - Chargement réussi du fichier: ../data/raw\caracteristiques-2020.csv
+2024-12-20 16:20:00,347 - INFO - Chargement réussi du fichier: ../data/raw\caracteristiques-2021.csv
+2024-12-20 16:20:00,503 - INFO - Chargement réussi du fichier: ../data/raw\vehicules-2021.csv
+2024-12-20 16:20:00,543 - INFO - Chargement réussi du fichier: ../data/raw\usagers-2022.csv
+2024-12-20 16:20:00,756 - INFO - Chargement réussi du fichier: ../data/raw\vehicules-2020.csv
+2024-12-20 16:20:00,814 - INFO - Chargement réussi du fichier: ../data/raw\vehicules-2022.csv
+2024-12-20 16:20:00,815 - INFO - Chargement réussi du fichier: ../data/raw\vehicules-2019.csv
+2024-12-20 16:20:00,893 - INFO - Chargement réussi du fichier: ../data/raw\usagers-2020.csv
+2024-12-20 16:20:00,907 - INFO - Chargement réussi du fichier: ../data/raw\usagers-2019.csv
+2024-12-20 16:20:00,950 - INFO - Chargement réussi du fichier: ../data/raw\usagers-2021.csv
+2024-12-20 16:20:00,950 - INFO - Temps total de chargement des fichiers: 1.94 secondes
+2024-12-20 16:20:00,951 - INFO - Prétraitement pour caracteristiques
+2024-12-20 16:20:00,956 - INFO - Colonnes ['com', 'adr', 'lat', 'long'] supprimées pour caracteristiques.
+2024-12-20 16:20:00,961 - INFO - Colonnes ['com', 'adr', 'lat', 'long'] supprimées pour caracteristiques.
+2024-12-20 16:20:00,966 - INFO - Colonnes ['com', 'adr', 'lat', 'long'] supprimées pour caracteristiques.
+2024-12-20 16:20:00,971 - INFO - Colonnes ['com', 'adr', 'lat', 'long'] supprimées pour caracteristiques.
+2024-12-20 16:20:00,972 - INFO - Colonne 'Accident_Id' renommée en 'Num_Acc' pour caracteristiques.
+2024-12-20 16:20:00,972 - INFO - Prétraitement pour lieux
+2024-12-20 16:20:00,974 - INFO - Colonnes ['voie', 'v1', 'v2', 'larrout', 'pr', 'pr1'] supprimées pour lieux.
+2024-12-20 16:20:00,977 - INFO - Colonnes ['voie', 'v1', 'v2', 'larrout', 'pr', 'pr1'] supprimées pour lieux.
+2024-12-20 16:20:00,980 - INFO - Colonnes ['voie', 'v1', 'v2', 'larrout', 'pr', 'pr1'] supprimées pour lieux.
+2024-12-20 16:20:00,983 - INFO - Colonnes ['voie', 'v1', 'v2', 'larrout', 'pr', 'pr1'] supprimées pour lieux.
+2024-12-20 16:20:00,983 - INFO - Prétraitement pour usagers
+2024-12-20 16:20:00,992 - INFO - Colonnes ['etatp', 'catu'] supprimées pour usagers.
+2024-12-20 16:20:00,998 - INFO - Colonnes ['etatp', 'catu'] supprimées pour usagers.
+2024-12-20 16:20:01,005 - INFO - Colonnes ['etatp', 'catu'] supprimées pour usagers.
+2024-12-20 16:20:01,015 - INFO - Colonnes ['etatp', 'catu'] supprimées pour usagers.
+2024-12-20 16:20:01,015 - INFO - Prétraitement pour vehicules
+2024-12-20 16:20:01,019 - INFO - Colonnes ['occutc'] supprimées pour vehicules.
+2024-12-20 16:20:01,023 - INFO - Colonnes ['occutc'] supprimées pour vehicules.
+2024-12-20 16:20:01,027 - INFO - Colonnes ['occutc'] supprimées pour vehicules.
+2024-12-20 16:20:01,032 - INFO - Colonnes ['occutc'] supprimées pour vehicules.
+2024-12-20 16:20:01,032 - INFO - Structure de référence extraite pour caracteristiques
+2024-12-20 16:20:01,032 - INFO - Structure de référence extraite pour lieux
+2024-12-20 16:20:01,032 - INFO - Structure de référence extraite pour usagers
+2024-12-20 16:20:01,033 - INFO - Structure de référence extraite pour vehicules
+2024-12-20 16:20:01,041 - INFO - Structure de référence appliquée à caracteristiques-2019.
+2024-12-20 16:20:01,050 - INFO - Structure de référence appliquée à caracteristiques-2020.
+2024-12-20 16:20:01,057 - INFO - Structure de référence appliquée à caracteristiques-2021.
+2024-12-20 16:20:01,066 - INFO - Structure de référence appliquée à caracteristiques-2022.
+2024-12-20 16:20:01,076 - INFO - Structure de référence appliquée à lieux-2019.
+2024-12-20 16:20:01,085 - INFO - Structure de référence appliquée à lieux-2020.
+2024-12-20 16:20:01,093 - INFO - Structure de référence appliquée à lieux-2021.
+2024-12-20 16:20:01,103 - INFO - Structure de référence appliquée à lieux-2022.
+2024-12-20 16:20:01,138 - INFO - Structure de référence appliquée à usagers-2019.
+2024-12-20 16:20:01,165 - INFO - Structure de référence appliquée à usagers-2020.
+2024-12-20 16:20:01,198 - INFO - Structure de référence appliquée à usagers-2021.
+2024-12-20 16:20:01,235 - INFO - Structure de référence appliquée à usagers-2022.
+2024-12-20 16:20:01,254 - INFO - Structure de référence appliquée à vehicules-2019.
+2024-12-20 16:20:01,269 - INFO - Structure de référence appliquée à vehicules-2020.
+2024-12-20 16:20:01,287 - INFO - Structure de référence appliquée à vehicules-2021.
+2024-12-20 16:20:01,305 - INFO - Structure de référence appliquée à vehicules-2022.
+2024-12-20 16:20:01,761 - INFO - Dataframe concaténé pour caracteristiques sauvegardé dans ../data/processed\caracteristiques_2019_2022_process.csv
+2024-12-20 16:20:02,201 - INFO - Dataframe concaténé pour lieux sauvegardé dans ../data/processed\lieux_2019_2022_process.csv
+2024-12-20 16:20:02,668 - INFO - Valeurs manquantes de 'id_usager' remplies avec des valeurs uniques après concaténation pour usagers.
+2024-12-20 16:20:02,671 - INFO - Colonne 'id_usager' convertie en type int64 pour usagers.
+2024-12-20 16:20:04,210 - INFO - Dataframe concaténé pour usagers sauvegardé dans ../data/processed\usagers_2019_2022_process.csv
+2024-12-20 16:20:05,000 - INFO - Dataframe concaténé pour vehicules sauvegardé dans ../data/processed\vehicules_2019_2022_process.csv
+2024-12-20 16:20:06,299 - INFO - Caractéristiques et lieux fusionnés avec succès.
+2024-12-20 16:20:06,520 - INFO - Caractéristiques/lieux et usagers fusionnés avec succès.
+2024-12-20 16:20:06,969 - INFO - Caractéristiques/lieux/usagers et véhicules fusionnés avec succès.
+2024-12-20 16:20:07,078 - INFO - Colonne 'lum' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:07,154 - INFO - Colonne 'atm' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:07,229 - INFO - Colonne 'col' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:07,305 - INFO - Colonne 'catr' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:07,380 - INFO - Colonne 'circ' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:07,453 - INFO - Colonne 'vosp' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:07,527 - INFO - Colonne 'prof' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:07,603 - INFO - Colonne 'plan' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:07,679 - INFO - Colonne 'surf' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:07,753 - INFO - Colonne 'infra' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:07,829 - INFO - Colonne 'situ' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:07,917 - INFO - Colonne 'place' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:07,993 - INFO - Colonne 'trajet' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:08,069 - INFO - Colonne 'locp' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:08,145 - INFO - Colonne 'senc' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:08,226 - INFO - Colonne 'catv' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:08,304 - INFO - Colonne 'obs' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:08,383 - INFO - Colonne 'obsm' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:08,460 - INFO - Colonne 'agg' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:08,536 - INFO - Colonne 'int' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:08,612 - INFO - Colonne 'sexe' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:08,693 - INFO - Colonne 'manv' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:08,699 - INFO - Colonne 'actp' convertie en type 'string' pour le traitement des modalités.
+2024-12-20 16:20:08,759 - INFO - Modalités de la colonne 'lum' remplacées par 'jour' pour les valeurs ['1'].
+2024-12-20 16:20:08,811 - INFO - Modalités de la colonne 'lum' remplacées par 'crepuscule_aube' pour les valeurs ['2'].
+2024-12-20 16:20:08,908 - INFO - Modalités de la colonne 'lum' remplacées par 'nocturne' pour les valeurs ['3', '4', '5'].
+2024-12-20 16:20:08,991 - INFO - Modalités de la colonne 'atm' remplacées par 'normale' pour les valeurs ['1', '8'].
+2024-12-20 16:20:09,075 - INFO - Modalités de la colonne 'atm' remplacées par 'pluvieuses' pour les valeurs ['2', '3'].
+2024-12-20 16:20:09,181 - INFO - Modalités de la colonne 'atm' remplacées par 'difficiles' pour les valeurs ['4', '5', '6', '7', '9'].
+2024-12-20 16:20:09,256 - INFO - Modalités de la colonne 'col' remplacées par 'sans_collision' pour les valeurs ['7'].
+2024-12-20 16:20:09,373 - INFO - Modalités de la colonne 'col' remplacées par 'deux_vl' pour les valeurs ['1', '2', '3'].
+2024-12-20 16:20:09,478 - INFO - Modalités de la colonne 'col' remplacées par 'autres' pour les valeurs ['4', '5', '6'].
+2024-12-20 16:20:09,561 - INFO - Modalités de la colonne 'catr' remplacées par 'route_principale' pour les valeurs ['1', '2'].
+2024-12-20 16:20:09,640 - INFO - Modalités de la colonne 'catr' remplacées par 'route_secondaire' pour les valeurs ['3', '4'].
+2024-12-20 16:20:09,678 - INFO - Modalités de la colonne 'catr' remplacées par 'route_urbaine' pour les valeurs ['7'].
+2024-12-20 16:20:09,739 - INFO - Modalités de la colonne 'catr' remplacées par 'autre' pour les valeurs ['5', '6', '9'].
+2024-12-20 16:20:09,823 - INFO - Modalités de la colonne 'circ' remplacées par 'simple' pour les valeurs ['1', '2'].
+2024-12-20 16:20:09,886 - INFO - Modalités de la colonne 'circ' remplacées par 'complexe' pour les valeurs ['3', '4'].
+2024-12-20 16:20:09,940 - INFO - Modalités de la colonne 'vosp' remplacées par 'sans' pour les valeurs ['0'].
+2024-12-20 16:20:10,012 - INFO - Modalités de la colonne 'vosp' remplacées par 'avec' pour les valeurs ['1', '2', '3'].
+2024-12-20 16:20:10,068 - INFO - Modalités de la colonne 'prof' remplacées par 'plat' pour les valeurs ['1'].
+2024-12-20 16:20:10,149 - INFO - Modalités de la colonne 'prof' remplacées par 'incline' pour les valeurs ['2', '3', '4'].
+2024-12-20 16:20:10,205 - INFO - Modalités de la colonne 'plan' remplacées par 'rectiligne' pour les valeurs ['1'].
+2024-12-20 16:20:10,285 - INFO - Modalités de la colonne 'plan' remplacées par 'courbe' pour les valeurs ['2', '3', '4'].
+2024-12-20 16:20:10,340 - INFO - Modalités de la colonne 'surf' remplacées par 'normale' pour les valeurs ['1'].
+2024-12-20 16:20:10,433 - INFO - Modalités de la colonne 'surf' remplacées par 'humide' pour les valeurs ['2', '3', '4'].
+2024-12-20 16:20:10,527 - INFO - Modalités de la colonne 'surf' remplacées par 'autre' pour les valeurs ['5', '6', '7', '8', '9'].
+2024-12-20 16:20:10,583 - INFO - Modalités de la colonne 'infra' remplacées par 'aucun' pour les valeurs ['0'].
+2024-12-20 16:20:10,686 - INFO - Modalités de la colonne 'infra' remplacées par 'routiers' pour les valeurs ['1', '2', '3', '5'].
+2024-12-20 16:20:10,782 - INFO - Modalités de la colonne 'infra' remplacées par 'zones' pour les valeurs ['4', '6', '7', '8', '9'].
+2024-12-20 16:20:10,838 - INFO - Modalités de la colonne 'situ' remplacées par 'aucun' pour les valeurs ['0'].
+2024-12-20 16:20:10,893 - INFO - Modalités de la colonne 'situ' remplacées par 'normale' pour les valeurs ['1'].
+2024-12-20 16:20:11,023 - INFO - Modalités de la colonne 'situ' remplacées par 'particuliere' pour les valeurs ['2', '3', '4', '5', '6', '8'].
+2024-12-20 16:20:11,084 - INFO - Modalités de la colonne 'place' remplacées par 'conducteur' pour les valeurs ['1'].
+2024-12-20 16:20:11,138 - INFO - Modalités de la colonne 'place' remplacées par 'pieton' pour les valeurs ['10'].
+2024-12-20 16:20:11,208 - INFO - Modalités de la colonne 'place' remplacées par 'passager_avant' pour les valeurs ['6', '2'].
+2024-12-20 16:20:11,324 - INFO - Modalités de la colonne 'place' remplacées par 'passager' pour les valeurs ['3', '4', '5', '7', '8', '9'].
+2024-12-20 16:20:11,409 - INFO - Modalités de la colonne 'trajet' remplacées par 'domicile' pour les valeurs ['1', '2'].
+2024-12-20 16:20:11,492 - INFO - Modalités de la colonne 'trajet' remplacées par 'personnelle' pour les valeurs ['3', '5'].
+2024-12-20 16:20:11,548 - INFO - Modalités de la colonne 'trajet' remplacées par 'professionnelle' pour les valeurs ['4'].
+2024-12-20 16:20:11,601 - INFO - Modalités de la colonne 'trajet' remplacées par 'autre' pour les valeurs ['9'].
+2024-12-20 16:20:11,658 - INFO - Modalités de la colonne 'locp' remplacées par 'sans' pour les valeurs ['0'].
+2024-12-20 16:20:11,769 - INFO - Modalités de la colonne 'locp' remplacées par 'chaussee' pour les valeurs ['1', '2', '3', '4'].
+2024-12-20 16:20:11,872 - INFO - Modalités de la colonne 'locp' remplacées par 'autre' pour les valeurs ['5', '6', '7', '8'].
+2024-12-20 16:20:11,933 - INFO - Modalités de la colonne 'senc' remplacées par 'croissant' pour les valeurs ['1'].
+2024-12-20 16:20:11,990 - INFO - Modalités de la colonne 'senc' remplacées par 'decroissant' pour les valeurs ['2'].
+2024-12-20 16:20:12,057 - INFO - Modalités de la colonne 'senc' remplacées par 'inconnu' pour les valeurs ['0', '3'].
+2024-12-20 16:20:12,185 - INFO - Modalités de la colonne 'catv' remplacées par 'cycle_edp' pour les valeurs ['1', '50', '60', '80'].
+2024-12-20 16:20:12,362 - INFO - Modalités de la colonne 'catv' remplacées par '2rm' pour les valeurs ['2', '30', '31', '32', '33', '34'].
+2024-12-20 16:20:12,553 - INFO - Modalités de la colonne 'catv' remplacées par 'vl' pour les valeurs ['3', '7', '10', '35', '36', '41', '42', '43'].
+2024-12-20 16:20:12,765 - INFO - Modalités de la colonne 'catv' remplacées par 'pl' pour les valeurs ['13', '14', '15', '16', '17', '20', '21', '37', '38', '39', '40', '99'].
+2024-12-20 16:20:12,822 - INFO - Modalités de la colonne 'obs' remplacées par 'aucun' pour les valeurs ['0'].
+2024-12-20 16:20:13,123 - INFO - Modalités de la colonne 'obs' remplacées par 'structurel' pour les valeurs ['1', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '14', '16', '15', '17'].
+2024-12-20 16:20:13,174 - INFO - Modalités de la colonne 'obs' remplacées par 'naturel' pour les valeurs ['2', '13'].
+2024-12-20 16:20:13,234 - INFO - Modalités de la colonne 'obsm' remplacées par 'aucun' pour les valeurs ['0'].
+2024-12-20 16:20:13,290 - INFO - Modalités de la colonne 'obsm' remplacées par 'pieton' pour les valeurs ['1'].
+2024-12-20 16:20:13,365 - INFO - Modalités de la colonne 'obsm' remplacées par 'vehicule' pour les valeurs ['2', '4'].
+2024-12-20 16:20:13,423 - INFO - Modalités de la colonne 'obsm' remplacées par 'autre' pour les valeurs ['5', '6', '9'].
+2024-12-20 16:20:13,482 - INFO - Modalités de la colonne 'agg' remplacées par 'non' pour les valeurs ['1'].
+2024-12-20 16:20:13,534 - INFO - Modalités de la colonne 'agg' remplacées par 'oui' pour les valeurs ['2'].
+2024-12-20 16:20:13,592 - INFO - Modalités de la colonne 'int' remplacées par 'aucun' pour les valeurs ['1'].
+2024-12-20 16:20:13,683 - INFO - Modalités de la colonne 'int' remplacées par 'simple' pour les valeurs ['2', '3', '4'].
+2024-12-20 16:20:13,789 - INFO - Modalités de la colonne 'int' remplacées par 'complexe' pour les valeurs ['5', '6', '7', '8', '9'].
+2024-12-20 16:20:13,849 - INFO - Modalités de la colonne 'sexe' remplacées par 'masculin' pour les valeurs ['1'].
+2024-12-20 16:20:13,902 - INFO - Modalités de la colonne 'sexe' remplacées par 'feminin' pour les valeurs ['2'].
+2024-12-20 16:20:13,988 - INFO - Modalités de la colonne 'manv' remplacées par 'ligne_droite' pour les valeurs ['1', '2'].
+2024-12-20 16:20:14,171 - INFO - Modalités de la colonne 'manv' remplacées par 'atypique' pour les valeurs ['3', '5', '6', '7', '8', '9', '25'].
+2024-12-20 16:20:14,406 - INFO - Modalités de la colonne 'manv' remplacées par 'changement_dir' pour les valeurs ['10', '11', '12', '13', '14', '15', '16', '17', '18'].
+2024-12-20 16:20:14,531 - INFO - Modalités de la colonne 'manv' remplacées par 'particuliere' pour les valeurs ['4', '19', '21', '22', '26'].
+2024-12-20 16:20:14,605 - INFO - Modalités de la colonne 'manv' remplacées par 'arret' pour les valeurs ['20', '23', '24'].
+2024-12-20 16:20:14,650 - INFO - Modalités de la colonne 'actp' remplacées par 'axe' pour les valeurs ['1', '2'].
+2024-12-20 16:20:14,682 - INFO - Modalités de la colonne 'actp' remplacées par 'traverse' pour les valeurs ['3'].
+2024-12-20 16:20:14,765 - INFO - Modalités de la colonne 'actp' remplacées par 'autre' pour les valeurs ['4', '5', '6', 'A', '9'].
+2024-12-20 16:20:14,798 - INFO - Modalités de la colonne 'actp' remplacées par 'sans_objet' pour les valeurs ['0'].
+2024-12-20 16:20:14,844 - INFO - Valeurs ['-1'] de la colonne 'lum' remplacées par le mode 'jour'.
+2024-12-20 16:20:14,893 - INFO - Valeurs ['-1'] de la colonne 'atm' remplacées par le mode 'normale'.
+2024-12-20 16:20:14,948 - INFO - Valeurs ['-1'] de la colonne 'col' remplacées par le mode 'deux_vl'.
+2024-12-20 16:20:14,969 - INFO - Valeurs [] de la colonne 'catr' remplacées par le mode 'route_secondaire'.
+2024-12-20 16:20:15,024 - INFO - Valeurs ['-1'] de la colonne 'circ' remplacées par le mode 'simple'.
+2024-12-20 16:20:15,072 - INFO - Valeurs ['-1'] de la colonne 'vosp' remplacées par le mode 'sans'.
+2024-12-20 16:20:15,116 - INFO - Valeurs ['-1'] de la colonne 'prof' remplacées par le mode 'plat'.
+2024-12-20 16:20:15,161 - INFO - Valeurs ['-1'] de la colonne 'plan' remplacées par le mode 'rectiligne'.
+2024-12-20 16:20:15,206 - INFO - Valeurs ['-1'] de la colonne 'surf' remplacées par le mode 'normale'.
+2024-12-20 16:20:15,254 - INFO - Valeurs ['-1'] de la colonne 'infra' remplacées par le mode 'aucun'.
+2024-12-20 16:20:15,299 - INFO - Valeurs ['-1'] de la colonne 'situ' remplacées par le mode 'normale'.
+2024-12-20 16:20:15,343 - INFO - Valeurs ['-1'] de la colonne 'place' remplacées par le mode 'conducteur'.
+2024-12-20 16:20:15,434 - INFO - Valeurs ['-1', '0'] de la colonne 'trajet' remplacées par le mode 'personnelle'.
+2024-12-20 16:20:15,520 - INFO - Valeurs ['-1', '9'] de la colonne 'locp' remplacées par le mode 'sans'.
+2024-12-20 16:20:15,567 - INFO - Valeurs ['-1'] de la colonne 'senc' remplacées par le mode 'croissant'.
+2024-12-20 16:20:15,628 - INFO - Valeurs ['-1', '0'] de la colonne 'catv' remplacées par le mode 'vl'.
+2024-12-20 16:20:15,674 - INFO - Valeurs ['-1'] de la colonne 'obs' remplacées par le mode 'aucun'.
+2024-12-20 16:20:15,720 - INFO - Valeurs ['-1'] de la colonne 'obsm' remplacées par le mode 'vehicule'.
+2024-12-20 16:20:15,764 - INFO - Valeurs ['-1'] de la colonne 'int' remplacées par le mode 'aucun'.
+2024-12-20 16:20:15,812 - INFO - Valeurs ['-1'] de la colonne 'sexe' remplacées par le mode 'masculin'.
+2024-12-20 16:20:15,883 - INFO - Valeurs ['-1', '0'] de la colonne 'manv' remplacées par le mode 'ligne_droite'.
+2024-12-20 16:20:15,940 - INFO - Valeurs ['-1', 'B'] de la colonne 'actp' remplacées par le mode 'sans_objet'.
+2024-12-20 16:20:15,957 - INFO - Colonne 'lum' convertie en type 'category'.
+2024-12-20 16:20:15,976 - INFO - Colonne 'atm' convertie en type 'category'.
+2024-12-20 16:20:15,994 - INFO - Colonne 'col' convertie en type 'category'.
+2024-12-20 16:20:16,018 - INFO - Colonne 'catr' convertie en type 'category'.
+2024-12-20 16:20:16,035 - INFO - Colonne 'circ' convertie en type 'category'.
+2024-12-20 16:20:16,051 - INFO - Colonne 'vosp' convertie en type 'category'.
+2024-12-20 16:20:16,068 - INFO - Colonne 'prof' convertie en type 'category'.
+2024-12-20 16:20:16,088 - INFO - Colonne 'plan' convertie en type 'category'.
+2024-12-20 16:20:16,106 - INFO - Colonne 'surf' convertie en type 'category'.
+2024-12-20 16:20:16,123 - INFO - Colonne 'infra' convertie en type 'category'.
+2024-12-20 16:20:16,141 - INFO - Colonne 'situ' convertie en type 'category'.
+2024-12-20 16:20:16,162 - INFO - Colonne 'place' convertie en type 'category'.
+2024-12-20 16:20:16,183 - INFO - Colonne 'trajet' convertie en type 'category'.
+2024-12-20 16:20:16,199 - INFO - Colonne 'locp' convertie en type 'category'.
+2024-12-20 16:20:16,220 - INFO - Colonne 'senc' convertie en type 'category'.
+2024-12-20 16:20:16,237 - INFO - Colonne 'catv' convertie en type 'category'.
+2024-12-20 16:20:16,255 - INFO - Colonne 'obs' convertie en type 'category'.
+2024-12-20 16:20:16,274 - INFO - Colonne 'obsm' convertie en type 'category'.
+2024-12-20 16:20:16,291 - INFO - Colonne 'agg' convertie en type 'category'.
+2024-12-20 16:20:16,309 - INFO - Colonne 'int' convertie en type 'category'.
+2024-12-20 16:20:16,329 - INFO - Colonne 'sexe' convertie en type 'category'.
+2024-12-20 16:20:16,352 - INFO - Colonne 'manv' convertie en type 'category'.
+2024-12-20 16:20:16,372 - INFO - Colonne 'actp' convertie en type 'category'.
+2024-12-20 16:20:17,106 - INFO - Colonne 'id_vehicule' convertie en type 'int64'.
+2024-12-20 16:20:17,178 - INFO - Colonne 'nb_v' ajoutée, indiquant le nombre de véhicules impliqués dans chaque accident.
+2024-12-20 16:20:17,768 - INFO - Colonne 'id_usager' convertie en type 'int64'.
+2024-12-20 16:20:17,837 - INFO - Colonne 'nb_u' ajoutée, indiquant le nombre d'usagers impliqués dans chaque accident.
+2024-12-20 16:20:17,881 - INFO - Colonnes ['num_veh', 'id_usager', 'id_vehicule', 'Num_Acc', 'nbv', 'an'] supprimées.
+2024-12-20 16:20:17,891 - INFO - Colonne 'an_nais' convertie en type 'int64' et les valeurs manquantes remplacées par le mode.
+2024-12-20 16:20:17,905 - INFO - Valeurs de la colonne 'vma' traitées : -1 remplacés par le mode, valeurs supérieures à 130 limitées à 130.
+2024-12-20 16:20:18,572 - INFO - Colonne 'hrmn' transformée en 'hr' pour caracteristiques.
+2024-12-20 16:20:18,687 - INFO - Mapping départements-régions chargé avec succès.
+2024-12-20 16:20:19,102 - INFO - Transformation des départements en régions réussie.
+2024-12-20 16:20:19,185 - INFO - Prétraitrement de la variable cible 'grav'.
+2024-12-20 16:20:19,189 - INFO - Traitement des caractéristiques appliqué au DataFrame fusionné.
+2024-12-20 16:20:19,268 - INFO - Colonnes ~booléennes 'has_ceinture', 'has_gants', 'has_casque', 'has_airbag', 'has_gilet', 'has_de' créées avec succès.
+2024-12-20 16:20:19,297 - INFO - Colonnes 'secu1', 'secu2', 'secu3' supprimées après création des colonnes booléennes.
+2024-12-20 16:20:19,324 - INFO - Colonnes ~booléennes 'choc_avant', 'choc_arriere', 'choc_gauche', 'choc_droit' créées avec succès.
+2024-12-20 16:20:19,357 - INFO - Colonne 'choc' supprimée après création des colonnes booléennes.
+2024-12-20 16:20:19,357 - INFO - Toutes les colonnes booléennes de sécurité et de choc ont été créées avec succès.
+2024-12-20 16:20:20,039 - INFO - 1685 doublons supprimés.
+2024-12-20 16:20:24,500 - INFO - DataFrame fusionné sauvegardé dans ../data/processed\merged_data_2019_2022.csv.
+2024-12-20 16:20:24,500 - INFO - Traitement total: 23.55 secondes
+2024-12-20 16:20:30,785 - INFO - Loading data from ../data/processed/merged_data_2019_2022.csv
+2024-12-20 16:20:33,493 - INFO - Data loaded successfully
+2024-12-20 16:20:34,059 - INFO - Building pipeline for RandomForestClassifier()...
+2024-12-20 16:20:34,114 - INFO - Identifying column types...
+2024-12-20 16:20:34,228 - INFO - Building preprocessor...
+2024-12-20 16:20:34,231 - INFO - Preprocessor built successfully.
+2024-12-20 16:20:34,248 - INFO - Pipeline built successfully.
+2024-12-20 16:20:34,356 - INFO - Starting model training for RandomForest...
+2024-12-20 16:23:13,900 - INFO - Training completed in 159.54 seconds
+2024-12-20 16:23:13,900 - INFO - Best parameters: {'classifier__n_estimators': 300, 'classifier__min_samples_split': 10, 'classifier__min_samples_leaf': 1, 'classifier__max_depth': 10, 'classifier__bootstrap': True}
+2024-12-20 16:23:18,009 - INFO - Evaluating model: RandomForest
+2024-12-20 16:23:18,313 - INFO - Calculating metrics...
+2024-12-20 16:23:18,321 - INFO - F1-score: 0.8046
+2024-12-20 16:23:18,321 - INFO - Cohen Kappa: 0.4027
+2024-12-20 16:23:18,321 - INFO - MCC: 0.4156
+2024-12-20 16:23:18,321 - INFO - Recall: 0.7902
+2024-12-20 16:23:18,321 - INFO - Balanced Accuracy: 0.7391
+2024-12-20 16:23:18,327 - INFO - ROC AUC: 0.8319
+2024-12-20 16:23:18,327 - INFO - Log Loss: 0.4319
+2024-12-20 16:23:18,327 - INFO - Brier Score: 0.1407
+2024-12-20 16:23:18,327 - INFO - Logging metrics to MLflow...
+2024-12-20 16:23:18,331 - INFO - Logged f1_score: 0.8046224425311523
+2024-12-20 16:23:18,334 - INFO - Logged cohen_kappa: 0.4026783078574223
+2024-12-20 16:23:18,337 - INFO - Logged mcc: 0.41556256912629985
+2024-12-20 16:23:18,341 - INFO - Logged recall: 0.7901522842639593
+2024-12-20 16:23:18,344 - INFO - Logged balanced_accuracy: 0.7390857841853019
+2024-12-20 16:23:18,347 - INFO - Logged roc_auc: 0.8319112102439128
+2024-12-20 16:23:18,350 - INFO - Logged log_loss: 0.4319115275912996
+2024-12-20 16:23:18,354 - INFO - Logged brier_score: 0.14071668306473636
+2024-12-20 16:23:18,354 - INFO - Logging artifacts...
+2024-12-20 16:23:22,465 - INFO - Model evaluation completed in 4.46 seconds
+2024-12-20 16:23:25,847 - INFO - Model RandomForest evaluated with params {'variance_threshold': 0.01, 'importance_threshold': 0.01, 'correlation_threshold': 0.9}, threshold 0.5, scoring recall.
+2024-12-20 16:23:25,962 - INFO - Building pipeline for XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=None, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=None, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=None,
+              num_parallel_tree=None, random_state=None, ...)...
+2024-12-20 16:23:26,012 - INFO - Identifying column types...
+2024-12-20 16:23:26,076 - INFO - Building preprocessor...
+2024-12-20 16:23:26,079 - INFO - Preprocessor built successfully.
+2024-12-20 16:23:26,096 - INFO - Pipeline built successfully.
+2024-12-20 16:23:26,201 - INFO - Starting model training for XGBoost...
+2024-12-20 16:24:54,823 - INFO - Training completed in 88.62 seconds
+2024-12-20 16:24:54,824 - INFO - Best parameters: {'classifier__subsample': 1.0, 'classifier__n_estimators': 100, 'classifier__max_depth': 3, 'classifier__learning_rate': 0.01, 'classifier__colsample_bytree': 1.0}
+2024-12-20 16:24:58,193 - INFO - Evaluating model: XGBoost
+2024-12-20 16:24:58,267 - INFO - Calculating metrics...
+2024-12-20 16:24:58,299 - INFO - F1-score: 0.7298
+2024-12-20 16:24:58,299 - INFO - Cohen Kappa: 0.3066
+2024-12-20 16:24:58,300 - INFO - MCC: 0.3565
+2024-12-20 16:24:58,300 - INFO - Recall: 0.6956
+2024-12-20 16:24:58,300 - INFO - Balanced Accuracy: 0.7275
+2024-12-20 16:24:58,308 - INFO - ROC AUC: 0.7936
+2024-12-20 16:24:58,308 - INFO - Log Loss: 0.5610
+2024-12-20 16:24:58,308 - INFO - Brier Score: 0.1884
+2024-12-20 16:24:58,308 - INFO - Logging metrics to MLflow...
+2024-12-20 16:24:58,314 - INFO - Logged f1_score: 0.7298118436226186
+2024-12-20 16:24:58,319 - INFO - Logged cohen_kappa: 0.3066148506046078
+2024-12-20 16:24:58,324 - INFO - Logged mcc: 0.356508069098498
+2024-12-20 16:24:58,329 - INFO - Logged recall: 0.6956345177664974
+2024-12-20 16:24:58,334 - INFO - Logged balanced_accuracy: 0.7274644900061427
+2024-12-20 16:24:58,339 - INFO - Logged roc_auc: 0.79359067046748
+2024-12-20 16:24:58,345 - INFO - Logged log_loss: 0.5609538338715165
+2024-12-20 16:24:58,350 - INFO - Logged brier_score: 0.18836007197295132
+2024-12-20 16:24:58,350 - INFO - Logging artifacts...
+2024-12-20 16:24:58,671 - INFO - Model evaluation completed in 0.48 seconds
+2024-12-20 16:25:01,908 - INFO - Model XGBoost evaluated with params {'variance_threshold': 0.01, 'importance_threshold': 0.01, 'correlation_threshold': 0.9}, threshold 0.5, scoring recall.
+2024-12-20 16:25:02,015 - INFO - Building pipeline for LGBMClassifier()...
+2024-12-20 16:25:02,066 - INFO - Identifying column types...
+2024-12-20 16:25:02,130 - INFO - Building preprocessor...
+2024-12-20 16:25:02,133 - INFO - Preprocessor built successfully.
+2024-12-20 16:25:02,150 - INFO - Pipeline built successfully.
+2024-12-20 16:25:02,269 - INFO - Starting model training for LightGBM...
+2024-12-20 16:26:50,578 - INFO - Training completed in 108.31 seconds
+2024-12-20 16:26:50,578 - INFO - Best parameters: {'classifier__num_leaves': 31, 'classifier__n_estimators': 100, 'classifier__max_depth': -1, 'classifier__learning_rate': 0.01}
+2024-12-20 16:26:55,996 - INFO - Evaluating model: LightGBM
+2024-12-20 16:26:56,087 - INFO - Calculating metrics...
+2024-12-20 16:26:56,097 - INFO - F1-score: 0.7963
+2024-12-20 16:26:56,097 - INFO - Cohen Kappa: 0.3926
+2024-12-20 16:26:56,097 - INFO - MCC: 0.4108
+2024-12-20 16:26:56,097 - INFO - Recall: 0.7787
+2024-12-20 16:26:56,097 - INFO - Balanced Accuracy: 0.7417
+2024-12-20 16:26:56,103 - INFO - ROC AUC: 0.8181
+2024-12-20 16:26:56,103 - INFO - Log Loss: 0.5063
+2024-12-20 16:26:56,103 - INFO - Brier Score: 0.1635
+2024-12-20 16:26:56,103 - INFO - Logging metrics to MLflow...
+2024-12-20 16:26:56,109 - INFO - Logged f1_score: 0.7962727492931254
+2024-12-20 16:26:56,112 - INFO - Logged cohen_kappa: 0.3925686360949504
+2024-12-20 16:26:56,116 - INFO - Logged mcc: 0.4107522462376593
+2024-12-20 16:26:56,119 - INFO - Logged recall: 0.7786802030456853
+2024-12-20 16:26:56,122 - INFO - Logged balanced_accuracy: 0.7417342622806441
+2024-12-20 16:26:56,126 - INFO - Logged roc_auc: 0.8181196634674877
+2024-12-20 16:26:56,130 - INFO - Logged log_loss: 0.5062648814559968
+2024-12-20 16:26:56,135 - INFO - Logged brier_score: 0.16353628264605194
+2024-12-20 16:26:56,135 - INFO - Logging artifacts...
+2024-12-20 16:26:56,567 - INFO - Model evaluation completed in 0.57 seconds
+2024-12-20 16:27:06,820 - INFO - Model LightGBM evaluated with params {'variance_threshold': 0.01, 'importance_threshold': 0.01, 'correlation_threshold': 0.9}, threshold 0.5, scoring recall.
+2024-12-20 16:27:07,018 - INFO - Building pipeline for LogisticRegression()...
+2024-12-20 16:27:07,129 - INFO - Identifying column types...
+2024-12-20 16:27:07,247 - INFO - Building preprocessor...
+2024-12-20 16:27:07,252 - INFO - Preprocessor built successfully.
+2024-12-20 16:27:07,281 - INFO - Pipeline built successfully.
+2024-12-20 16:27:07,495 - INFO - Starting model training for LogisticRegression...
+2024-12-20 16:28:37,382 - INFO - Training completed in 89.89 seconds
+2024-12-20 16:28:37,382 - INFO - Best parameters: {'classifier__solver': 'saga', 'classifier__penalty': 'l2', 'classifier__C': 10}
+2024-12-20 16:28:41,274 - INFO - Evaluating model: LogisticRegression
+2024-12-20 16:28:41,370 - INFO - Calculating metrics...
+2024-12-20 16:28:41,383 - INFO - F1-score: 0.7817
+2024-12-20 16:28:41,383 - INFO - Cohen Kappa: 0.3587
+2024-12-20 16:28:41,383 - INFO - MCC: 0.3786
+2024-12-20 16:28:41,383 - INFO - Recall: 0.7614
+2024-12-20 16:28:41,383 - INFO - Balanced Accuracy: 0.7255
+2024-12-20 16:28:41,393 - INFO - ROC AUC: 0.8080
+2024-12-20 16:28:41,393 - INFO - Log Loss: 0.4853
+2024-12-20 16:28:41,393 - INFO - Brier Score: 0.1603
+2024-12-20 16:28:41,393 - INFO - Logging metrics to MLflow...
+2024-12-20 16:28:41,397 - INFO - Logged f1_score: 0.7816741978894167
+2024-12-20 16:28:41,402 - INFO - Logged cohen_kappa: 0.3586739968771946
+2024-12-20 16:28:41,406 - INFO - Logged mcc: 0.3786333934905045
+2024-12-20 16:28:41,410 - INFO - Logged recall: 0.7614213197969543
+2024-12-20 16:28:41,413 - INFO - Logged balanced_accuracy: 0.7255029537313782
+2024-12-20 16:28:41,417 - INFO - Logged roc_auc: 0.8079894490084182
+2024-12-20 16:28:41,422 - INFO - Logged log_loss: 0.4852530187584816
+2024-12-20 16:28:41,425 - INFO - Logged brier_score: 0.16030833297130356
+2024-12-20 16:28:41,425 - INFO - Logging artifacts...
+2024-12-20 16:28:41,826 - INFO - Model evaluation completed in 0.55 seconds
+2024-12-20 16:28:45,259 - INFO - Model LogisticRegression evaluated with params {'variance_threshold': 0.01, 'importance_threshold': 0.01, 'correlation_threshold': 0.9}, threshold 0.5, scoring recall.
+2024-12-20 16:28:45,367 - INFO -                 model  decision_threshold  ...                                        best_params                                     feature_params
+0        RandomForest                 0.5  ...  {'classifier__n_estimators': 300, 'classifier_...  {'variance_threshold': 0.01, 'importance_thres...
+1             XGBoost                 0.5  ...  {'classifier__subsample': 1.0, 'classifier__n_...  {'variance_threshold': 0.01, 'importance_thres...
+2            LightGBM                 0.5  ...  {'classifier__num_leaves': 31, 'classifier__n_...  {'variance_threshold': 0.01, 'importance_thres...
+3  LogisticRegression                 0.5  ...  {'classifier__solver': 'saga', 'classifier__pe...  {'variance_threshold': 0.01, 'importance_thres...
+
+[4 rows x 6 columns]
+2024-12-20 16:47:47,738 - INFO - Loading data from ../data/processed/merged_data_2019_2022.csv
+2024-12-20 16:47:50,444 - INFO - Data loaded successfully
+2024-12-20 16:47:50,943 - INFO - Building pipeline for RandomForestClassifier()...
+2024-12-20 16:47:50,995 - INFO - Identifying column types...
+2024-12-20 16:47:51,063 - INFO - Building preprocessor...
+2024-12-20 16:47:51,066 - INFO - Preprocessor built successfully.
+2024-12-20 16:47:51,079 - INFO - Pipeline built successfully.
+2024-12-20 16:47:51,197 - INFO - Starting model training for RandomForest...
+2024-12-20 16:50:37,303 - INFO - Training completed in 166.11 seconds
+2024-12-20 16:50:37,303 - INFO - Best parameters: {'classifier__n_estimators': 500, 'classifier__min_samples_split': 2, 'classifier__min_samples_leaf': 1, 'classifier__max_depth': None, 'classifier__bootstrap': False}
+2024-12-20 16:50:47,429 - INFO - Evaluating model: RandomForest
+2024-12-20 16:50:48,432 - INFO - Calculating metrics...
+2024-12-20 16:50:48,441 - INFO - F1-score: 0.8121
+2024-12-20 16:50:48,441 - INFO - Cohen Kappa: 0.3323
+2024-12-20 16:50:48,441 - INFO - MCC: 0.3382
+2024-12-20 16:50:48,441 - INFO - Recall: 0.8234
+2024-12-20 16:50:48,441 - INFO - Balanced Accuracy: 0.6486
+2024-12-20 16:50:48,446 - INFO - ROC AUC: 0.8092
+2024-12-20 16:50:48,446 - INFO - Log Loss: 0.4128
+2024-12-20 16:50:48,446 - INFO - Brier Score: 0.1230
+2024-12-20 16:50:48,446 - INFO - Logging metrics to MLflow...
+2024-12-20 16:50:48,449 - INFO - Logged f1_score: 0.8120616088525613
+2024-12-20 16:50:48,452 - INFO - Logged cohen_kappa: 0.3323418901919586
+2024-12-20 16:50:48,456 - INFO - Logged mcc: 0.33817606114351784
+2024-12-20 16:50:48,459 - INFO - Logged recall: 0.8233502538071066
+2024-12-20 16:50:48,462 - INFO - Logged balanced_accuracy: 0.6486084603027199
+2024-12-20 16:50:48,466 - INFO - Logged roc_auc: 0.8091877127227283
+2024-12-20 16:50:48,470 - INFO - Logged log_loss: 0.4127942613160563
+2024-12-20 16:50:48,473 - INFO - Logged brier_score: 0.12302410203045686
+2024-12-20 16:50:48,474 - INFO - Logging artifacts...
+2024-12-20 16:50:49,004 - INFO - Model evaluation completed in 1.57 seconds
+2024-12-20 16:50:58,987 - INFO - Model RandomForest evaluated with params {'variance_threshold': 0.01, 'importance_threshold': 0.01, 'correlation_threshold': 0.9}, threshold 0.5, scoring recall.
+2024-12-20 16:50:59,102 - INFO - Building pipeline for XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=None, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=None, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=None,
+              num_parallel_tree=None, random_state=None, ...)...
+2024-12-20 16:50:59,155 - INFO - Identifying column types...
+2024-12-20 16:50:59,225 - INFO - Building preprocessor...
+2024-12-20 16:50:59,230 - INFO - Preprocessor built successfully.
+2024-12-20 16:50:59,244 - INFO - Pipeline built successfully.
+2024-12-20 16:50:59,384 - INFO - Starting model training for XGBoost...
+2024-12-20 16:52:28,440 - INFO - Training completed in 89.06 seconds
+2024-12-20 16:52:28,440 - INFO - Best parameters: {'classifier__subsample': 1.0, 'classifier__n_estimators': 100, 'classifier__max_depth': 6, 'classifier__learning_rate': 0.1, 'classifier__colsample_bytree': 1.0}
+2024-12-20 16:52:32,329 - INFO - Evaluating model: XGBoost
+2024-12-20 16:52:32,395 - INFO - Calculating metrics...
+2024-12-20 16:52:32,429 - INFO - F1-score: 0.8191
+2024-12-20 16:52:32,429 - INFO - Cohen Kappa: 0.3471
+2024-12-20 16:52:32,429 - INFO - MCC: 0.3595
+2024-12-20 16:52:32,429 - INFO - Recall: 0.8344
+2024-12-20 16:52:32,429 - INFO - Balanced Accuracy: 0.6488
+2024-12-20 16:52:32,492 - INFO - ROC AUC: 0.8291
+2024-12-20 16:52:32,492 - INFO - Log Loss: 0.3657
+2024-12-20 16:52:32,492 - INFO - Brier Score: 0.1160
+2024-12-20 16:52:32,492 - INFO - Logging metrics to MLflow...
+2024-12-20 16:52:32,495 - INFO - Logged f1_score: 0.8190720233845892
+2024-12-20 16:52:32,498 - INFO - Logged cohen_kappa: 0.3471131651548659
+2024-12-20 16:52:32,502 - INFO - Logged mcc: 0.3595357008543836
+2024-12-20 16:52:32,505 - INFO - Logged recall: 0.8344162436548224
+2024-12-20 16:52:32,509 - INFO - Logged balanced_accuracy: 0.6487820247692031
+2024-12-20 16:52:32,512 - INFO - Logged roc_auc: 0.8290626208889399
+2024-12-20 16:52:32,515 - INFO - Logged log_loss: 0.36572800075878026
+2024-12-20 16:52:32,518 - INFO - Logged brier_score: 0.11603364872613586
+2024-12-20 16:52:32,518 - INFO - Logging artifacts...
+2024-12-20 16:52:32,848 - INFO - Model evaluation completed in 0.52 seconds
+2024-12-20 16:52:36,241 - INFO - Model XGBoost evaluated with params {'variance_threshold': 0.01, 'importance_threshold': 0.01, 'correlation_threshold': 0.9}, threshold 0.5, scoring recall.
+2024-12-20 16:52:36,359 - INFO - Building pipeline for LGBMClassifier()...
+2024-12-20 16:52:36,412 - INFO - Identifying column types...
+2024-12-20 16:52:36,483 - INFO - Building preprocessor...
+2024-12-20 16:52:36,486 - INFO - Preprocessor built successfully.
+2024-12-20 16:52:36,500 - INFO - Pipeline built successfully.
+2024-12-20 16:52:36,654 - INFO - Starting model training for LightGBM...
+2024-12-20 16:53:58,275 - INFO - Training completed in 81.62 seconds
+2024-12-20 16:53:58,275 - INFO - Best parameters: {'classifier__num_leaves': 100, 'classifier__n_estimators': 100, 'classifier__max_depth': -1, 'classifier__learning_rate': 0.01}
+2024-12-20 16:54:01,688 - INFO - Evaluating model: LightGBM
+2024-12-20 16:54:01,757 - INFO - Calculating metrics...
+2024-12-20 16:54:01,766 - INFO - F1-score: 0.8192
+2024-12-20 16:54:01,766 - INFO - Cohen Kappa: 0.3508
+2024-12-20 16:54:01,766 - INFO - MCC: 0.3609
+2024-12-20 16:54:01,766 - INFO - Recall: 0.8330
+2024-12-20 16:54:01,766 - INFO - Balanced Accuracy: 0.6525
+2024-12-20 16:54:01,771 - INFO - ROC AUC: 0.8215
+2024-12-20 16:54:01,771 - INFO - Log Loss: 0.4428
+2024-12-20 16:54:01,771 - INFO - Brier Score: 0.1356
+2024-12-20 16:54:01,771 - INFO - Logging metrics to MLflow...
+2024-12-20 16:54:01,774 - INFO - Logged f1_score: 0.8191836128326582
+2024-12-20 16:54:01,778 - INFO - Logged cohen_kappa: 0.3508079737804669
+2024-12-20 16:54:01,781 - INFO - Logged mcc: 0.36089859464015606
+2024-12-20 16:54:01,784 - INFO - Logged recall: 0.832994923857868
+2024-12-20 16:54:01,787 - INFO - Logged balanced_accuracy: 0.65251954847319
+2024-12-20 16:54:01,791 - INFO - Logged roc_auc: 0.8214667542176654
+2024-12-20 16:54:01,795 - INFO - Logged log_loss: 0.442756166725778
+2024-12-20 16:54:01,798 - INFO - Logged brier_score: 0.1356168803973046
+2024-12-20 16:54:01,798 - INFO - Logging artifacts...
+2024-12-20 16:54:02,133 - INFO - Model evaluation completed in 0.45 seconds
+2024-12-20 16:54:05,479 - INFO - Model LightGBM evaluated with params {'variance_threshold': 0.01, 'importance_threshold': 0.01, 'correlation_threshold': 0.9}, threshold 0.5, scoring recall.
+2024-12-20 16:54:05,586 - INFO - Building pipeline for LogisticRegression()...
+2024-12-20 16:54:05,637 - INFO - Identifying column types...
+2024-12-20 16:54:05,707 - INFO - Building preprocessor...
+2024-12-20 16:54:05,710 - INFO - Preprocessor built successfully.
+2024-12-20 16:54:05,724 - INFO - Pipeline built successfully.
+2024-12-20 16:54:05,830 - INFO - Starting model training for LogisticRegression...
+2024-12-20 16:55:26,772 - INFO - Training completed in 80.94 seconds
+2024-12-20 16:55:26,772 - INFO - Best parameters: {'classifier__solver': 'saga', 'classifier__penalty': 'l2', 'classifier__C': 10}
+2024-12-20 16:55:29,882 - INFO - Evaluating model: LogisticRegression
+2024-12-20 16:55:29,951 - INFO - Calculating metrics...
+2024-12-20 16:55:29,960 - INFO - F1-score: 0.8024
+2024-12-20 16:55:29,960 - INFO - Cohen Kappa: 0.3053
+2024-12-20 16:55:29,960 - INFO - MCC: 0.3084
+2024-12-20 16:55:29,960 - INFO - Recall: 0.8115
+2024-12-20 16:55:29,960 - INFO - Balanced Accuracy: 0.6400
+2024-12-20 16:55:29,965 - INFO - ROC AUC: 0.7964
+2024-12-20 16:55:29,966 - INFO - Log Loss: 0.4073
+2024-12-20 16:55:29,966 - INFO - Brier Score: 0.1299
+2024-12-20 16:55:29,966 - INFO - Logging metrics to MLflow...
+2024-12-20 16:55:29,969 - INFO - Logged f1_score: 0.8024442983523382
+2024-12-20 16:55:29,972 - INFO - Logged cohen_kappa: 0.3053315394660797
+2024-12-20 16:55:29,975 - INFO - Logged mcc: 0.30841397370056794
+2024-12-20 16:55:29,980 - INFO - Logged recall: 0.8114720812182741
+2024-12-20 16:55:29,984 - INFO - Logged balanced_accuracy: 0.6400455517886825
+2024-12-20 16:55:29,988 - INFO - Logged roc_auc: 0.7964415939893044
+2024-12-20 16:55:29,992 - INFO - Logged log_loss: 0.40731373951540534
+2024-12-20 16:55:29,996 - INFO - Logged brier_score: 0.12991799595027015
+2024-12-20 16:55:29,996 - INFO - Logging artifacts...
+2024-12-20 16:55:30,345 - INFO - Model evaluation completed in 0.46 seconds
+2024-12-20 16:55:33,414 - INFO - Model LogisticRegression evaluated with params {'variance_threshold': 0.01, 'importance_threshold': 0.01, 'correlation_threshold': 0.9}, threshold 0.5, scoring recall.
+2024-12-20 16:55:33,541 - INFO -                 model  decision_threshold  ...                                        best_params                                     feature_params
+0        RandomForest                 0.5  ...  {'classifier__n_estimators': 500, 'classifier_...  {'variance_threshold': 0.01, 'importance_thres...
+1             XGBoost                 0.5  ...  {'classifier__subsample': 1.0, 'classifier__n_...  {'variance_threshold': 0.01, 'importance_thres...
+2            LightGBM                 0.5  ...  {'classifier__num_leaves': 100, 'classifier__n...  {'variance_threshold': 0.01, 'importance_thres...
+3  LogisticRegression                 0.5  ...  {'classifier__solver': 'saga', 'classifier__pe...  {'variance_threshold': 0.01, 'importance_thres...
+
+[4 rows x 6 columns]
+2024-12-20 17:09:26,421 - INFO - Loading data from ../data/processed/merged_data_2019_2022.csv
+2024-12-20 17:09:29,708 - INFO - Data loaded successfully
+2024-12-20 17:09:30,347 - INFO - Building pipeline for RandomForestClassifier()...
+2024-12-20 17:09:30,406 - INFO - Identifying column types...
+2024-12-20 17:09:30,484 - INFO - Building preprocessor...
+2024-12-20 17:09:30,487 - INFO - Preprocessor built successfully.
+2024-12-20 17:09:30,505 - INFO - Pipeline built successfully.
+2024-12-20 17:09:30,629 - INFO - Starting model training for RandomForest...
+2024-12-20 17:12:03,922 - INFO - Training completed in 153.29 seconds
+2024-12-20 17:12:03,922 - INFO - Best parameters: {'classifier__n_estimators': 300, 'classifier__min_samples_split': 10, 'classifier__min_samples_leaf': 1, 'classifier__max_depth': None, 'classifier__bootstrap': True}
+2024-12-20 17:12:09,353 - INFO - Evaluating model: RandomForest
+2024-12-20 17:12:09,918 - INFO - Calculating metrics...
+2024-12-20 17:12:09,928 - INFO - F1-score: 0.8180
+2024-12-20 17:12:09,928 - INFO - Cohen Kappa: 0.3462
+2024-12-20 17:12:09,928 - INFO - MCC: 0.3563
+2024-12-20 17:12:09,928 - INFO - Recall: 0.8320
+2024-12-20 17:12:09,928 - INFO - Balanced Accuracy: 0.6504
+2024-12-20 17:12:09,935 - INFO - ROC AUC: 0.8225
+2024-12-20 17:12:09,935 - INFO - Log Loss: 0.3707
+2024-12-20 17:12:09,935 - INFO - Brier Score: 0.1175
+2024-12-20 17:12:09,935 - INFO - Logging metrics to MLflow...
+2024-12-20 17:12:09,939 - INFO - Logged f1_score: 0.8179673038048354
+2024-12-20 17:12:09,942 - INFO - Logged cohen_kappa: 0.3462020381387192
+2024-12-20 17:12:09,946 - INFO - Logged mcc: 0.3563217562570688
+2024-12-20 17:12:09,949 - INFO - Logged recall: 0.8319796954314721
+2024-12-20 17:12:09,953 - INFO - Logged balanced_accuracy: 0.6503652169841505
+2024-12-20 17:12:09,956 - INFO - Logged roc_auc: 0.8224665092346608
+2024-12-20 17:12:09,960 - INFO - Logged log_loss: 0.37072524182323574
+2024-12-20 17:12:09,964 - INFO - Logged brier_score: 0.11750023243661602
+2024-12-20 17:12:09,964 - INFO - Logging artifacts...
+2024-12-20 17:12:10,568 - INFO - Model evaluation completed in 1.21 seconds
+2024-12-20 17:12:14,730 - INFO - Model RandomForest evaluated with params {'variance_threshold': 0.01, 'importance_threshold': 0.01, 'correlation_threshold': 0.9}, threshold 0.5, scoring recall.
+2024-12-20 17:12:14,868 - INFO - Building pipeline for XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=None, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=None, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=None,
+              num_parallel_tree=None, random_state=None, ...)...
+2024-12-20 17:12:14,925 - INFO - Identifying column types...
+2024-12-20 17:12:15,010 - INFO - Building preprocessor...
+2024-12-20 17:12:15,013 - INFO - Preprocessor built successfully.
+2024-12-20 17:12:15,029 - INFO - Pipeline built successfully.
+2024-12-20 17:12:15,151 - INFO - Starting model training for XGBoost...
+2024-12-20 17:13:46,054 - INFO - Training completed in 90.90 seconds
+2024-12-20 17:13:46,054 - INFO - Best parameters: {'classifier__subsample': 1.0, 'classifier__n_estimators': 100, 'classifier__max_depth': 6, 'classifier__learning_rate': 0.1, 'classifier__colsample_bytree': 1.0}
+2024-12-20 17:13:49,582 - INFO - Evaluating model: XGBoost
+2024-12-20 17:13:49,651 - INFO - Calculating metrics...
+2024-12-20 17:13:49,667 - INFO - F1-score: 0.8191
+2024-12-20 17:13:49,667 - INFO - Cohen Kappa: 0.3471
+2024-12-20 17:13:49,667 - INFO - MCC: 0.3595
+2024-12-20 17:13:49,667 - INFO - Recall: 0.8344
+2024-12-20 17:13:49,667 - INFO - Balanced Accuracy: 0.6488
+2024-12-20 17:13:49,676 - INFO - ROC AUC: 0.8291
+2024-12-20 17:13:49,676 - INFO - Log Loss: 0.3657
+2024-12-20 17:13:49,677 - INFO - Brier Score: 0.1160
+2024-12-20 17:13:49,677 - INFO - Logging metrics to MLflow...
+2024-12-20 17:13:49,682 - INFO - Logged f1_score: 0.8190720233845892
+2024-12-20 17:13:49,688 - INFO - Logged cohen_kappa: 0.3471131651548659
+2024-12-20 17:13:49,693 - INFO - Logged mcc: 0.3595357008543836
+2024-12-20 17:13:49,699 - INFO - Logged recall: 0.8344162436548224
+2024-12-20 17:13:49,704 - INFO - Logged balanced_accuracy: 0.6487820247692031
+2024-12-20 17:13:49,710 - INFO - Logged roc_auc: 0.8290626208889399
+2024-12-20 17:13:49,716 - INFO - Logged log_loss: 0.36572800075878026
+2024-12-20 17:13:49,721 - INFO - Logged brier_score: 0.11603364872613586
+2024-12-20 17:13:49,721 - INFO - Logging artifacts...
+2024-12-20 17:13:50,084 - INFO - Model evaluation completed in 0.50 seconds
+2024-12-20 17:13:53,560 - INFO - Model XGBoost evaluated with params {'variance_threshold': 0.01, 'importance_threshold': 0.01, 'correlation_threshold': 0.9}, threshold 0.5, scoring recall.
+2024-12-20 17:13:53,675 - INFO - Building pipeline for LGBMClassifier()...
+2024-12-20 17:13:53,731 - INFO - Identifying column types...
+2024-12-20 17:13:53,803 - INFO - Building preprocessor...
+2024-12-20 17:13:53,806 - INFO - Preprocessor built successfully.
+2024-12-20 17:13:53,820 - INFO - Pipeline built successfully.
+2024-12-20 17:13:53,947 - INFO - Starting model training for LightGBM...
+2024-12-20 17:15:25,869 - INFO - Training completed in 91.92 seconds
+2024-12-20 17:15:25,869 - INFO - Best parameters: {'classifier__num_leaves': 100, 'classifier__n_estimators': 100, 'classifier__max_depth': -1, 'classifier__learning_rate': 0.01}
+2024-12-20 17:15:29,618 - INFO - Evaluating model: LightGBM
+2024-12-20 17:15:29,692 - INFO - Calculating metrics...
+2024-12-20 17:15:29,708 - INFO - F1-score: 0.8192
+2024-12-20 17:15:29,708 - INFO - Cohen Kappa: 0.3508
+2024-12-20 17:15:29,708 - INFO - MCC: 0.3609
+2024-12-20 17:15:29,708 - INFO - Recall: 0.8330
+2024-12-20 17:15:29,708 - INFO - Balanced Accuracy: 0.6525
+2024-12-20 17:15:29,713 - INFO - ROC AUC: 0.8215
+2024-12-20 17:15:29,713 - INFO - Log Loss: 0.4428
+2024-12-20 17:15:29,713 - INFO - Brier Score: 0.1356
+2024-12-20 17:15:29,713 - INFO - Logging metrics to MLflow...
+2024-12-20 17:15:29,716 - INFO - Logged f1_score: 0.8191836128326582
+2024-12-20 17:15:29,722 - INFO - Logged cohen_kappa: 0.3508079737804669
+2024-12-20 17:15:29,728 - INFO - Logged mcc: 0.36089859464015606
+2024-12-20 17:15:29,734 - INFO - Logged recall: 0.832994923857868
+2024-12-20 17:15:29,738 - INFO - Logged balanced_accuracy: 0.65251954847319
+2024-12-20 17:15:29,741 - INFO - Logged roc_auc: 0.8214667542176654
+2024-12-20 17:15:29,747 - INFO - Logged log_loss: 0.442756166725778
+2024-12-20 17:15:29,752 - INFO - Logged brier_score: 0.1356168803973046
+2024-12-20 17:15:29,752 - INFO - Logging artifacts...
+2024-12-20 17:15:30,107 - INFO - Model evaluation completed in 0.49 seconds
+2024-12-20 17:15:33,628 - INFO - Model LightGBM evaluated with params {'variance_threshold': 0.01, 'importance_threshold': 0.01, 'correlation_threshold': 0.9}, threshold 0.5, scoring recall.
+2024-12-20 17:15:33,745 - INFO - Building pipeline for LogisticRegression()...
+2024-12-20 17:15:33,799 - INFO - Identifying column types...
+2024-12-20 17:15:33,880 - INFO - Building preprocessor...
+2024-12-20 17:15:33,883 - INFO - Preprocessor built successfully.
+2024-12-20 17:15:33,897 - INFO - Pipeline built successfully.
+2024-12-20 17:15:34,015 - INFO - Starting model training for LogisticRegression...
+2024-12-20 17:17:02,211 - INFO - Training completed in 88.20 seconds
+2024-12-20 17:17:02,211 - INFO - Best parameters: {'classifier__solver': 'saga', 'classifier__penalty': 'l2', 'classifier__C': 10}
+2024-12-20 17:17:05,535 - INFO - Evaluating model: LogisticRegression
+2024-12-20 17:17:05,593 - INFO - Calculating metrics...
+2024-12-20 17:17:05,602 - INFO - F1-score: 0.8024
+2024-12-20 17:17:05,602 - INFO - Cohen Kappa: 0.3053
+2024-12-20 17:17:05,602 - INFO - MCC: 0.3084
+2024-12-20 17:17:05,602 - INFO - Recall: 0.8115
+2024-12-20 17:17:05,602 - INFO - Balanced Accuracy: 0.6400
+2024-12-20 17:17:05,608 - INFO - ROC AUC: 0.7964
+2024-12-20 17:17:05,609 - INFO - Log Loss: 0.4073
+2024-12-20 17:17:05,609 - INFO - Brier Score: 0.1299
+2024-12-20 17:17:05,609 - INFO - Logging metrics to MLflow...
+2024-12-20 17:17:05,612 - INFO - Logged f1_score: 0.8024442983523382
+2024-12-20 17:17:05,615 - INFO - Logged cohen_kappa: 0.3053315394660797
+2024-12-20 17:17:05,619 - INFO - Logged mcc: 0.30841397370056794
+2024-12-20 17:17:05,623 - INFO - Logged recall: 0.8114720812182741
+2024-12-20 17:17:05,628 - INFO - Logged balanced_accuracy: 0.6400455517886825
+2024-12-20 17:17:05,632 - INFO - Logged roc_auc: 0.7964415939893044
+2024-12-20 17:17:05,636 - INFO - Logged log_loss: 0.4073137440244607
+2024-12-20 17:17:05,641 - INFO - Logged brier_score: 0.12991799741866836
+2024-12-20 17:17:05,641 - INFO - Logging artifacts...
+2024-12-20 17:17:06,029 - INFO - Model evaluation completed in 0.49 seconds
+2024-12-20 17:17:09,350 - INFO - Model LogisticRegression evaluated with params {'variance_threshold': 0.01, 'importance_threshold': 0.01, 'correlation_threshold': 0.9}, threshold 0.5, scoring recall.
+2024-12-20 17:17:09,368 - INFO -                 model  decision_threshold  ...                                        best_params                                     feature_params
+0        RandomForest                 0.5  ...  {'classifier__n_estimators': 300, 'classifier_...  {'variance_threshold': 0.01, 'importance_thres...
+1             XGBoost                 0.5  ...  {'classifier__subsample': 1.0, 'classifier__n_...  {'variance_threshold': 0.01, 'importance_thres...
+2            LightGBM                 0.5  ...  {'classifier__num_leaves': 100, 'classifier__n...  {'variance_threshold': 0.01, 'importance_thres...
+3  LogisticRegression                 0.5  ...  {'classifier__solver': 'saga', 'classifier__pe...  {'variance_threshold': 0.01, 'importance_thres...
+
+[4 rows x 6 columns]
+2024-12-21 13:43:32,501 - INFO - Loading data from ../data/processed/merged_data_2019_2022.csv
+2024-12-21 13:43:35,437 - INFO - Data loaded successfully
+2024-12-21 13:43:36,247 - INFO - Building pipeline for RandomForestClassifier()...
+2024-12-21 13:43:36,310 - INFO - Identifying column types...
+2024-12-21 13:43:36,405 - INFO - Building preprocessor...
+2024-12-21 13:43:36,409 - INFO - Preprocessor built successfully.
+2024-12-21 13:43:36,424 - INFO - Pipeline built successfully.
+2024-12-21 13:43:36,555 - INFO - Starting model training for RandomForest...
+2024-12-21 13:47:45,815 - INFO - Training completed in 249.26 seconds
+2024-12-21 13:47:45,816 - INFO - Best parameters: {'classifier__n_estimators': 500, 'classifier__min_samples_split': 2, 'classifier__min_samples_leaf': 1, 'classifier__max_depth': None, 'classifier__bootstrap': False}
+2024-12-21 13:48:01,728 - INFO - Evaluating model: RandomForest
+2024-12-21 13:48:02,911 - INFO - Calculating metrics...
+2024-12-21 13:48:02,954 - INFO - F1-score: 0.8255
+2024-12-21 13:48:02,954 - INFO - Cohen Kappa: 0.3727
+2024-12-21 13:48:02,954 - INFO - MCC: 0.3842
+2024-12-21 13:48:02,954 - INFO - Recall: 0.8393
+2024-12-21 13:48:02,954 - INFO - Balanced Accuracy: 0.6614
+2024-12-21 13:48:02,960 - INFO - ROC AUC: 0.8381
+2024-12-21 13:48:02,960 - INFO - Log Loss: 0.3662
+2024-12-21 13:48:02,960 - INFO - Brier Score: 0.1131
+2024-12-21 13:48:02,960 - INFO - Logging metrics to MLflow...
+2024-12-21 13:48:02,966 - INFO - Logged f1_score: 0.8255482924324646
+2024-12-21 13:48:02,972 - INFO - Logged cohen_kappa: 0.37274517851069877
+2024-12-21 13:48:02,977 - INFO - Logged mcc: 0.3841743741870739
+2024-12-21 13:48:02,982 - INFO - Logged recall: 0.8392893401015229
+2024-12-21 13:48:03,005 - INFO - Logged balanced_accuracy: 0.661403248156914
+2024-12-21 13:48:03,008 - INFO - Logged roc_auc: 0.8381482782627889
+2024-12-21 13:48:03,017 - INFO - Logged log_loss: 0.36622966742386104
+2024-12-21 13:48:03,022 - INFO - Logged brier_score: 0.11312012862944164
+2024-12-21 13:48:03,022 - INFO - Logging artifacts...
+2024-12-21 13:48:04,419 - INFO - Model evaluation completed in 2.69 seconds
+2024-12-21 13:48:12,456 - INFO - Model RandomForest evaluated with params {'variance_threshold': 0.01, 'importance_threshold': 0.01, 'correlation_threshold': 0.9}, threshold 0.5, scoring recall.
+2024-12-21 13:48:12,696 - INFO - Building pipeline for XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=None, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=None, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=None,
+              num_parallel_tree=None, random_state=None, ...)...
+2024-12-21 13:48:12,798 - INFO - Identifying column types...
+2024-12-21 13:48:13,054 - INFO - Building preprocessor...
+2024-12-21 13:48:13,057 - INFO - Preprocessor built successfully.
+2024-12-21 13:48:13,080 - INFO - Pipeline built successfully.
+2024-12-21 13:48:13,226 - INFO - Starting model training for XGBoost...
+2024-12-21 13:50:20,292 - INFO - Training completed in 127.07 seconds
+2024-12-21 13:50:20,292 - INFO - Best parameters: {'classifier__subsample': 1.0, 'classifier__n_estimators': 300, 'classifier__max_depth': 6, 'classifier__learning_rate': 0.1, 'classifier__colsample_bytree': 0.5}
+2024-12-21 13:50:24,389 - INFO - Evaluating model: XGBoost
+2024-12-21 13:50:24,487 - INFO - Calculating metrics...
+2024-12-21 13:50:24,533 - INFO - F1-score: 0.8294
+2024-12-21 13:50:24,533 - INFO - Cohen Kappa: 0.3849
+2024-12-21 13:50:24,533 - INFO - MCC: 0.3983
+2024-12-21 13:50:24,533 - INFO - Recall: 0.8438
+2024-12-21 13:50:24,533 - INFO - Balanced Accuracy: 0.6652
+2024-12-21 13:50:24,596 - INFO - ROC AUC: 0.8451
+2024-12-21 13:50:24,596 - INFO - Log Loss: 0.3508
+2024-12-21 13:50:24,596 - INFO - Brier Score: 0.1110
+2024-12-21 13:50:24,596 - INFO - Logging metrics to MLflow...
+2024-12-21 13:50:24,599 - INFO - Logged f1_score: 0.8294479160432411
+2024-12-21 13:50:24,603 - INFO - Logged cohen_kappa: 0.38488464844876336
+2024-12-21 13:50:24,607 - INFO - Logged mcc: 0.3983491960454167
+2024-12-21 13:50:24,610 - INFO - Logged recall: 0.843756345177665
+2024-12-21 13:50:24,613 - INFO - Logged balanced_accuracy: 0.6652250805740462
+2024-12-21 13:50:24,617 - INFO - Logged roc_auc: 0.8450671668704941
+2024-12-21 13:50:24,621 - INFO - Logged log_loss: 0.3507790939712203
+2024-12-21 13:50:24,625 - INFO - Logged brier_score: 0.11101121456380275
+2024-12-21 13:50:24,625 - INFO - Logging artifacts...
+2024-12-21 13:50:25,128 - INFO - Model evaluation completed in 0.74 seconds
+2024-12-21 13:50:28,863 - INFO - Model XGBoost evaluated with params {'variance_threshold': 0.01, 'importance_threshold': 0.01, 'correlation_threshold': 0.9}, threshold 0.5, scoring recall.
+2024-12-21 13:50:28,992 - INFO - Building pipeline for LGBMClassifier()...
+2024-12-21 13:50:29,050 - INFO - Identifying column types...
+2024-12-21 13:50:29,128 - INFO - Building preprocessor...
+2024-12-21 13:50:29,131 - INFO - Preprocessor built successfully.
+2024-12-21 13:50:29,148 - INFO - Pipeline built successfully.
+2024-12-21 13:50:29,279 - INFO - Starting model training for LightGBM...
+2024-12-21 13:52:38,722 - INFO - Training completed in 129.44 seconds
+2024-12-21 13:52:38,722 - INFO - Best parameters: {'classifier__num_leaves': 31, 'classifier__n_estimators': 300, 'classifier__max_depth': 20, 'classifier__learning_rate': 0.1}
+2024-12-21 13:52:42,925 - INFO - Evaluating model: LightGBM
+2024-12-21 13:52:43,031 - INFO - Calculating metrics...
+2024-12-21 13:52:43,046 - INFO - F1-score: 0.8288
+2024-12-21 13:52:43,046 - INFO - Cohen Kappa: 0.3843
+2024-12-21 13:52:43,046 - INFO - MCC: 0.3962
+2024-12-21 13:52:43,046 - INFO - Recall: 0.8423
+2024-12-21 13:52:43,046 - INFO - Balanced Accuracy: 0.6663
+2024-12-21 13:52:43,054 - INFO - ROC AUC: 0.8414
+2024-12-21 13:52:43,055 - INFO - Log Loss: 0.3558
+2024-12-21 13:52:43,055 - INFO - Brier Score: 0.1127
+2024-12-21 13:52:43,055 - INFO - Logging metrics to MLflow...
+2024-12-21 13:52:43,058 - INFO - Logged f1_score: 0.8287987673618984
+2024-12-21 13:52:43,064 - INFO - Logged cohen_kappa: 0.3843207365748994
+2024-12-21 13:52:43,069 - INFO - Logged mcc: 0.396198341455296
+2024-12-21 13:52:43,073 - INFO - Logged recall: 0.8423350253807107
+2024-12-21 13:52:43,077 - INFO - Logged balanced_accuracy: 0.6663313363084322
+2024-12-21 13:52:43,082 - INFO - Logged roc_auc: 0.8414129764069381
+2024-12-21 13:52:43,089 - INFO - Logged log_loss: 0.3558200983253549
+2024-12-21 13:52:43,093 - INFO - Logged brier_score: 0.1126988029017537
+2024-12-21 13:52:43,093 - INFO - Logging artifacts...
+2024-12-21 13:52:43,608 - INFO - Model evaluation completed in 0.68 seconds
+2024-12-21 13:52:47,331 - INFO - Model LightGBM evaluated with params {'variance_threshold': 0.01, 'importance_threshold': 0.01, 'correlation_threshold': 0.9}, threshold 0.5, scoring recall.
+2024-12-21 13:52:47,464 - INFO - Building pipeline for LogisticRegression()...
+2024-12-21 13:52:47,539 - INFO - Identifying column types...
+2024-12-21 13:52:47,617 - INFO - Building preprocessor...
+2024-12-21 13:52:47,620 - INFO - Preprocessor built successfully.
+2024-12-21 13:52:47,636 - INFO - Pipeline built successfully.
+2024-12-21 13:52:47,765 - INFO - Starting model training for LogisticRegression...
+2024-12-21 13:55:01,753 - INFO - Training completed in 133.99 seconds
+2024-12-21 13:55:01,753 - INFO - Best parameters: {'classifier__solver': 'saga', 'classifier__penalty': 'l2', 'classifier__C': 10}
+2024-12-21 13:55:05,680 - INFO - Evaluating model: LogisticRegression
+2024-12-21 13:55:05,795 - INFO - Calculating metrics...
+2024-12-21 13:55:05,806 - INFO - F1-score: 0.8117
+2024-12-21 13:55:05,806 - INFO - Cohen Kappa: 0.3288
+2024-12-21 13:55:05,806 - INFO - MCC: 0.3356
+2024-12-21 13:55:05,806 - INFO - Recall: 0.8239
+2024-12-21 13:55:05,806 - INFO - Balanced Accuracy: 0.6458
+2024-12-21 13:55:05,812 - INFO - ROC AUC: 0.8152
+2024-12-21 13:55:05,812 - INFO - Log Loss: 0.3864
+2024-12-21 13:55:05,812 - INFO - Brier Score: 0.1227
+2024-12-21 13:55:05,812 - INFO - Logging metrics to MLflow...
+2024-12-21 13:55:05,817 - INFO - Logged f1_score: 0.8116654887601503
+2024-12-21 13:55:05,821 - INFO - Logged cohen_kappa: 0.3288299217574687
+2024-12-21 13:55:05,825 - INFO - Logged mcc: 0.33555645271865997
+2024-12-21 13:55:05,828 - INFO - Logged recall: 0.8238578680203046
+2024-12-21 13:55:05,833 - INFO - Logged balanced_accuracy: 0.6458483602582383
+2024-12-21 13:55:05,838 - INFO - Logged roc_auc: 0.8151760351995149
+2024-12-21 13:55:05,842 - INFO - Logged log_loss: 0.38636157100995877
+2024-12-21 13:55:05,846 - INFO - Logged brier_score: 0.12272118138868315
+2024-12-21 13:55:05,846 - INFO - Logging artifacts...
+2024-12-21 13:55:06,258 - INFO - Model evaluation completed in 0.58 seconds
+2024-12-21 13:55:10,125 - INFO - Model LogisticRegression evaluated with params {'variance_threshold': 0.01, 'importance_threshold': 0.01, 'correlation_threshold': 0.9}, threshold 0.5, scoring recall.
+2024-12-21 13:55:10,332 - INFO -                 model  decision_threshold  ...                                        best_params                                     feature_params
+0        RandomForest                 0.5  ...  {'classifier__n_estimators': 500, 'classifier_...  {'variance_threshold': 0.01, 'importance_thres...
+1             XGBoost                 0.5  ...  {'classifier__subsample': 1.0, 'classifier__n_...  {'variance_threshold': 0.01, 'importance_thres...
+2            LightGBM                 0.5  ...  {'classifier__num_leaves': 31, 'classifier__n_...  {'variance_threshold': 0.01, 'importance_thres...
+3  LogisticRegression                 0.5  ...  {'classifier__solver': 'saga', 'classifier__pe...  {'variance_threshold': 0.01, 'importance_thres...
+
+[4 rows x 6 columns]

@@ -128,7 +128,7 @@ class FeaturesProcessor:
             mode_grav = dataframe['grav'][dataframe['grav'] != -1].mode()[0]
             dataframe['grav'] = dataframe['grav'].replace(-1, mode_grav)
             dataframe['grav'] = dataframe['grav'].replace(4, 1) # Blessé léger = indemne
-            #dataframe['grav'] = dataframe['grav'].replace(3, 2) # Blessé grave = tué
+            dataframe['grav'] = dataframe['grav'].replace(3, 2) # Blessé grave = tué
             dataframe['grav'] = dataframe['grav'].astype('int64')
             self.logger.info("Prétraitrement de la variable cible 'grav'.")
 

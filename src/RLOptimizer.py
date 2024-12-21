@@ -11,7 +11,7 @@ from lightgbm import LGBMClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
 from models.data_loader import DataLoader
-from models.piepline_builder_old import PipelineBuilder
+from old.piepline_builder_old import PipelineBuilder
 from models.evaluator import Evaluator
 import mlflow
 

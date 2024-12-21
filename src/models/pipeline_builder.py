@@ -48,7 +48,7 @@ class PipelineBuilder:
                 ])
                 categorical_pipeline = Pipeline([
                     ('imputer', SimpleImputer(strategy='most_frequent')),
-                    ('encoder', OneHotEncoder(handle_unknown='ignore', drop='first'))
+                    ('encoder', OneHotEncoder(handle_unknown='ignore'))
                 ])
                 preprocessor = ColumnTransformer([
                     ('num', numerical_pipeline, numerical_cols),
@@ -71,13 +71,13 @@ class PipelineBuilder:
                 self.logger.info(f"Building pipeline for {model}...")
                 numerical_cols, categorical_cols = self.get_column_types(X)
 
-                # Étape 1: Prétraitement
-                preprocessor = self.build_preprocessor(numerical_cols, categorical_cols)
-
-                # Étape 2: Gestion du déséquilibre des classes avec SMOTENC
+                # Étape 1: Gestion du déséquilibre des classes avec SMOTENC
                 categorical_indices = [X.columns.get_loc(col) for col in categorical_cols]
                 smotenc = SMOTENC(categorical_features=categorical_indices, **self.smotenc_params)
                 mlflow.log_params(self.smotenc_params)
+
+                # Étape 2: Prétraitement
+                preprocessor = self.build_preprocessor(numerical_cols, categorical_cols)
 
                 # Étape 3: Sélection des features
                 start_time = time.time()
@@ -87,8 +87,8 @@ class PipelineBuilder:
 
                 # Pipeline final
                 pipeline = ImbPipeline([
-                    ('preprocessor', preprocessor),
                     ('smotenc', smotenc),
+                    ('preprocessor', preprocessor),
                     ('feature_selection', feature_selector),
                     ('classifier', model)
                 ])
