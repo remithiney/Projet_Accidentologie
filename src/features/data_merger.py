@@ -16,16 +16,18 @@ class DataMerger:
         df_usagers = pd.read_csv(os.path.join(path_to_processed, f"usagers_{self.config['years_to_process'][0]}_{self.config['years_to_process'][-1]}_process.csv"))
         df_vehicules = pd.read_csv(os.path.join(path_to_processed, f"vehicules_{self.config['years_to_process'][0]}_{self.config['years_to_process'][-1]}_process.csv"))
 
-        # Fusionner les caractéristiques et les lieux
-        merged_df = pd.merge(df_caracteristiques, df_lieux, on='Num_Acc', how='left')
-        self.logger.info("Caractéristiques et lieux fusionnés avec succès.")
+        # Fusionner les usagers et les vehicule
+        df_merged = pd.merge(df_usagers, df_vehicules, on=['id_vehicule', "Num_Acc"], how='left')
+        self.logger.info("Fusion usagers et véhicules.")
 
-        # Fusionner avec les usagers
-        merged_df = pd.merge(merged_df, df_usagers, on='Num_Acc', how='left')
-        self.logger.info("Caractéristiques/lieux et usagers fusionnés avec succès.")
+        # Fusionner avec les caractéristiques
+        df_merged = pd.merge(df_merged, df_caracteristiques, on='Num_Acc', how='left')
+        self.logger.info("Fusion avec caractéristiques.")
 
-        # Fusionner avec les véhicules
-        merged_df = pd.merge(merged_df, df_vehicules, on=['Num_Acc', 'id_vehicule', 'num_veh'], how='left')
-        self.logger.info("Caractéristiques/lieux/usagers et véhicules fusionnés avec succès.")
+        # Fusionner avec les lieux
+        df_merged = pd.merge(df_merged, df_lieux, on='Num_Acc', how='left')
+        self.logger.info("Fusion avec lieux.")
 
-        return merged_df
+        self.logger.info(f'merged shape: {df_merged.shape}')
+
+        return df_merged

@@ -14,8 +14,8 @@
   "features_to_drop": {
     "caracteristiques": ["com", "adr", "lat", "long"],
     "lieux": ["voie", "v1", "v2", "larrout", "pr", "pr1"],
-    "usagers": ["etatp", "catu"],
-    "vehicules": ["occutc"]
+    "usagers": ["etatp"],
+    "vehicules": ["occutc", "motor"]
   },
   "model_result_path": "reports/results.txt",
   "model_parameters": {
@@ -33,7 +33,7 @@
           "classifier__max_depth": [10, 50, null],
           "classifier__min_samples_split": [2, 10],
           "classifier__min_samples_leaf": [1, 4],
-          "classifier__bootstrap": [true, false]
+          "classifier__class_weight": ["balanced", {"0": 1, "1": 5}]
         }
       },
       "XGBoost": {
@@ -42,7 +42,8 @@
           "classifier__max_depth": [3, 6],
           "classifier__learning_rate": [0.01, 0.1],
           "classifier__subsample": [0.5, 1.0],
-          "classifier__colsample_bytree": [0.5, 1.0]
+          "classifier__colsample_bytree": [0.5, 1.0],
+          "classifier__class_weight": ["balanced", {"0": 1, "1": 5}]
         }
       },
       "LightGBM": {
@@ -50,14 +51,16 @@
           "classifier__num_leaves": [31, 100],
           "classifier__max_depth": [-1, 20],
           "classifier__learning_rate": [0.01, 0.1],
-          "classifier__n_estimators": [100, 300]
+          "classifier__n_estimators": [100, 300],
+          "classifier__class_weight": ["balanced", {"0": 1, "1": 5}]
         }
       },
       "LogisticRegression": {
         "params": {
           "classifier__penalty": ["l2"],
           "classifier__C": [0.1, 1, 10],
-          "classifier__solver": ["liblinear", "saga"]
+          "classifier__solver": ["liblinear", "saga"],
+          "classifier__class_weight": ["balanced", {"0": 1, "1": 5}]
         }
       }
     }

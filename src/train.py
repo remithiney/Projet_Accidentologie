@@ -51,7 +51,7 @@ X_train, X_test, y_train, y_test = data_loader.load_data(
 )
 
 # Initialisation des classes nécessaires
-trainer = Trainer(logger)
+trainer = Trainer(logger, scoring="f1")
 evaluator = Evaluator(logger)
 results = []
 
