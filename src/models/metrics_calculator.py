@@ -9,6 +9,8 @@ from sklearn.metrics import (
     recall_score,
     balanced_accuracy_score
 )
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 class MetricsCalculator:
     def __init__(self, logger):

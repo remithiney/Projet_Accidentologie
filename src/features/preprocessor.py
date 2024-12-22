@@ -42,5 +42,6 @@ class Preprocessor:
     def solve_duplicates(self, dataframe: pd.DataFrame) -> pd.DataFrame:
         duplicate_count = dataframe.duplicated().sum()
         clean_df = dataframe.drop_duplicates()
-        self.logger.info(f'{duplicate_count} doublons supprimés.')
+        #self.logger.info(f"Duplicated: {dataframe[dataframe.duplicated()]}")
+        self.logger.info(f'{duplicate_count} doublons supprimé.')
         return clean_df

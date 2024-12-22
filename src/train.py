@@ -16,6 +16,9 @@ from models.pipeline_builder import PipelineBuilder
 from models.trainer import Trainer
 from loghandler import LogHandlerManager
 
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
+
 # Mapping des modèles
 MODEL_MAPPING = {
     "RandomForest": RandomForestClassifier,
@@ -46,9 +49,7 @@ mlflow.set_experiment("Accidents")
 data_loader = DataLoader(logger)
 X_train, X_test, y_train, y_test = data_loader.load_data(
     config["path_to_processed_csv"] + "/merged_data_2019_2022.csv",
-    target_column="grav",
-    sample_ratio=0.10
-)
+    target_column="grav")
 
 # Initialisation des classes nécessaires
 trainer = Trainer(logger, scoring="f1")

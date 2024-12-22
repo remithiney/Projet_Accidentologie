@@ -1,6 +1,6 @@
 from imblearn.pipeline import Pipeline as ImbPipeline
 from sklearn.pipeline import Pipeline
-from imblearn.over_sampling import SMOTENC
+from imblearn.under_sampling import RandomUnderSampler
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.impute import SimpleImputer
@@ -9,12 +9,13 @@ from models.feature_selector import FeatureSelector
 import traceback
 import time
 import mlflow
-
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 class PipelineBuilder:
-    def __init__(self, logger, smotenc_params=None, feature_selector_params=None):
+    def __init__(self, logger, undersampling_params=None, feature_selector_params=None):
         self.logger = logger
-        self.smotenc_params = smotenc_params or {'random_state': 42, 'sampling_strategy': 'minority'}
+        self.undersampling_params = undersampling_params or {'random_state': 42, 'sampling_strategy': 'majority'}
         self.feature_selector_params = feature_selector_params or {
             'variance_threshold': 0.01,
             'importance_threshold': 0.01,
@@ -28,6 +29,12 @@ class PipelineBuilder:
                 self.logger.info("Identifying column types...")
                 numerical_columns = X.select_dtypes(include=['int64', 'float64']).columns.tolist()
                 categorical_columns = X.select_dtypes(include=['object', 'category']).columns.tolist()
+
+                # Debug logs
+                self.logger.debug(f"Numerical columns detected: {numerical_columns}")
+                self.logger.debug(f"Categorical columns detected: {categorical_columns}")
+
+                X[categorical_columns] = X[categorical_columns].astype(str)
                 mlflow.log_metric("num_columns", len(numerical_columns))
                 mlflow.log_metric("cat_columns", len(categorical_columns))
                 mlflow.log_metric("execution_time", time.time() - start_time)
@@ -42,18 +49,26 @@ class PipelineBuilder:
             start_time = time.time()
             with mlflow.start_run(nested=True, run_name="Build_Preprocessor"):
                 self.logger.info("Building preprocessor...")
+
+                # Debug logs
+                self.logger.debug(f"Numerical columns: {numerical_cols}")
+                self.logger.debug(f"Categorical columns: {categorical_cols}")
+
                 numerical_pipeline = Pipeline([
-                    ('imputer', SimpleImputer(strategy='mean')),
+                    ('imputer', SimpleImputer(missing_values=-1, strategy='mean')),
                     ('scaler', MinMaxScaler())
                 ])
+
                 categorical_pipeline = Pipeline([
-                    ('imputer', SimpleImputer(strategy='most_frequent')),
+                    ('imputer', SimpleImputer(missing_values="-1", strategy='most_frequent')),
                     ('encoder', OneHotEncoder(handle_unknown='ignore'))
                 ])
+
                 preprocessor = ColumnTransformer([
                     ('num', numerical_pipeline, numerical_cols),
                     ('cat', categorical_pipeline, categorical_cols)
                 ])
+
                 mlflow.log_metric("execution_time", time.time() - start_time)
                 self.logger.info("Preprocessor built successfully.")
                 return preprocessor
@@ -69,15 +84,18 @@ class PipelineBuilder:
 
             with mlflow.start_run(nested=True, run_name="Build_Full_Pipeline"):
                 self.logger.info(f"Building pipeline for {model}...")
+
+                # Debug logs
+                self.logger.debug(f"Feature selector parameters: {feature_selector_params}")
+
                 numerical_cols, categorical_cols = self.get_column_types(X)
 
-                # Étape 1: Gestion du déséquilibre des classes avec SMOTENC
-                categorical_indices = [X.columns.get_loc(col) for col in categorical_cols]
-                smotenc = SMOTENC(categorical_features=categorical_indices, **self.smotenc_params)
-                mlflow.log_params(self.smotenc_params)
-
-                # Étape 2: Prétraitement
+                # Étape 1: Prétraitement
                 preprocessor = self.build_preprocessor(numerical_cols, categorical_cols)
+
+                # Étape 2: Gestion du déséquilibre des classes avec RandomUnderSampler
+                undersampler = RandomUnderSampler(**self.undersampling_params)
+                mlflow.log_params(self.undersampling_params)
 
                 # Étape 3: Sélection des features
                 start_time = time.time()
@@ -87,8 +105,8 @@ class PipelineBuilder:
 
                 # Pipeline final
                 pipeline = ImbPipeline([
-                    ('smotenc', smotenc),
                     ('preprocessor', preprocessor),
+                    ('undersampler', undersampler),
                     ('feature_selection', feature_selector),
                     ('classifier', model)
                 ])

@@ -59,23 +59,24 @@ class DataProcessor:
 
             # Fusionner tous les DataFrames
             data_merger = DataMerger(self.config, self.logger)
-            merged_df = data_merger.merge_all_dataframes()
+            
+            df_merged = data_merger.merge_all_dataframes()
 
             # A essayer dans le pipeline directement pour plus de modularité sur les modèles
             # Appliquer le traitement des caractéristiques
             features_processor = FeaturesProcessor(self.config, self.logger)
-            merged_df = features_processor.process_features(merged_df)
+            df_merged = features_processor.process_features(df_merged)
             self.logger.info("Traitement des caractéristiques appliqué au DataFrame fusionné.")
 
             features_boolean = FeaturesBoolean(self.config, self.logger)
-            merged_df = features_boolean.create_boolean_features(merged_df)
+            df_merged = features_boolean.create_boolean_features(df_merged)
 
-            merged_df= preprocessor.solve_duplicates(merged_df)
+            df_merged= preprocessor.solve_duplicates(df_merged)
             
             # Sauvegarder le DataFrame sans encodage
             output_file = f"merged_data_{self.config['years_to_process'][0]}_{self.config['years_to_process'][-1]}.csv"
             output_path = os.path.join(self.config["path_to_processed_csv"], output_file)
-            merged_df.to_csv(output_path, index=False)
+            df_merged.to_csv(output_path, index=False)
             self.logger.info(f"DataFrame fusionné sauvegardé dans {output_path}.")
 
             end_time = time.time()

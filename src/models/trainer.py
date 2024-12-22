@@ -6,6 +6,8 @@ import joblib
 import mlflow
 import mlflow.sklearn
 import os
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 class Trainer:
     def __init__(self, logger, scoring='recall', save_model_path=None):

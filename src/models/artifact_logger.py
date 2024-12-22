@@ -5,10 +5,13 @@ from sklearn.metrics import (
     confusion_matrix,
     ConfusionMatrixDisplay,
     roc_curve,
+    roc_auc_score,
     precision_recall_curve,
     classification_report
 )
 import mlflow
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 class ArtifactLogger:
     def __init__(self, logger, save_curves=True):
@@ -49,23 +52,28 @@ class ArtifactLogger:
         mlflow.log_artifact(cm_path)
 
     def log_curves(self, model_name, y_test, y_proba):
-        # Courbe ROC
+
+        # Calcul de la courbe ROC et de l'AUC
         fpr, tpr, _ = roc_curve(y_test, y_proba)
+        auc_value = roc_auc_score(y_test, y_proba)
+        
+        # Affichage de la courbe ROC avec AUC
         plt.figure()
-        plt.plot(fpr, tpr, label="ROC Curve")
+        plt.plot(fpr, tpr, label=f"ROC Curve (AUC = {auc_value:.2f})")
+        plt.xlabel("False Positive Rate")
+        plt.ylabel("True Positive Rate")
+        plt.title(f"ROC Curve - {model_name}")
         plt.legend()
+        
+        # Sauvegarde de la figure
         roc_path = os.path.join(self.report_dir, f"{model_name}_roc_curve.png")
         plt.savefig(roc_path)
+        plt.close()  # Ferme la figure pour libérer la mémoire
+        
+        # Enregistrement de l'AUC et de la figure dans MLflow
         mlflow.log_artifact(roc_path)
+        mlflow.log_metric(f"{model_name}_auc", auc_value)
 
-        # Courbe Precision-Recall
-        precision, recall, _ = precision_recall_curve(y_test, y_proba)
-        plt.figure()
-        plt.plot(recall, precision, label="Precision-Recall Curve")
-        plt.legend()
-        pr_path = os.path.join(self.report_dir, f"{model_name}_pr_curve.png")
-        plt.savefig(pr_path)
-        mlflow.log_artifact(pr_path)
 
     def log_residuals(self, model_name, y_test, y_pred, y_proba):
         residuals = pd.DataFrame({'Actual': y_test, 'Predicted': y_pred})

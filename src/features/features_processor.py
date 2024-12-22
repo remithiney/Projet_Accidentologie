@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import logging
 import json
 from features.dep_to_reg import DepToReg
@@ -31,6 +32,15 @@ class FeaturesProcessor:
                 else:
                     self.logger.warning(f"Clé 'modalities' manquante pour la colonne '{column}'. Aucun remplacement effectué.")
 
+        # Modifier les valeurs manquantes en -1
+        for column, details in fusion_data.items():
+            if column in dataframe.columns:
+                # Remplacement des valeurs spécifiées dans 'to_nan' par NaN
+                if 'to_nan' in details:
+                    to_nan_values = [str(val) for val in details['to_nan']]
+                    dataframe[column] = dataframe[column].replace(to_nan_values, -1)
+                    self.logger.info(f"Valeurs {to_nan_values} remplacées par NaN dans la colonne '{column}'.")
+
         # Appliquer le type final des colonnes
         for column, details in fusion_data.items():
             if column in dataframe.columns:
@@ -57,13 +67,28 @@ class FeaturesProcessor:
             self.logger.info("Colonne 'nb_u' ajoutée, indiquant le nombre d'usagers impliqués dans chaque accident.")
 
         # Supprimer les colonnes 'num_veh', 'id_usager', 'id_vehicule', 'Num_Acc'.
-        columns_to_drop = ['num_veh', 'id_usager', 'id_vehicule', 'Num_Acc']
+        columns_to_drop = ['num_veh', "num_veh_x", "num_veh_y", 'id_usager', 'id_vehicule', 'Num_Acc']
         columns_existing = [col for col in columns_to_drop if col in dataframe.columns]
         if columns_existing:
             dataframe.drop(columns=columns_existing, inplace=True)
             self.logger.info(f"Colonnes {columns_existing} supprimées.")
 
         # Traitement des colonnes spécifiques
+        if 'an_nais' in dataframe.columns:
+            dataframe["an_nais"] = dataframe["an_nais"].replace(np.nan, "-1")
+            self.logger.info("an_nais: np.nan to -1.")
+
+        if all(col in dataframe.columns for col in ['an', 'mois', 'jour']):
+            # Convertir directement les colonnes 'an', 'mois', 'jour' en une date
+            dataframe['date'] = pd.to_datetime(dataframe[['an', 'mois', 'jour']].rename(columns={'an': 'year', 'mois': 'month', 'jour': 'day'}))
+            
+            # Ajouter le jour de la semaine
+            dataframe['jour_semaine'] = dataframe['date'].dt.day_name().astype("category")
+            dataframe.drop(columns=['an','date'], inplace= True)
+        else:
+            raise ValueError("Les colonnes nécessaires ('an', 'mois', 'jour') sont manquantes.")
+
+
         if 'vma' in dataframe.columns:
             dataframe['vma'] = dataframe['vma'].clip(upper=130)
             self.logger.info("Valeurs de la colonne 'vma' traitées : valeurs supérieures à 130 limitées à 130.")
@@ -79,8 +104,7 @@ class FeaturesProcessor:
             dataframe['lartpc'] = pd.to_numeric(dataframe['lartpc'], errors='coerce')
             dataframe['lartpc'] = dataframe['lartpc'].abs()
             dataframe['lartpc'] = (dataframe['lartpc'] != 0).astype(int)
-            dataframe['lartpc'] = dataframe['lartpc'].map({0: 'False', 1: 'True'})
-            dataframe['tpc'] = dataframe['lartpc'].astype('category')
+            dataframe['tpc'] = dataframe['lartpc'].astype('int64')
             dataframe.drop(columns=['lartpc'], inplace=True)
 
         if 'dep' in dataframe.columns:

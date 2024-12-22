@@ -3,6 +3,8 @@ import time
 from models.metrics_calculator import MetricsCalculator
 from models.artifact_logger import ArtifactLogger
 import mlflow
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 class Evaluator:
     def __init__(self, logger, save_curves=True):

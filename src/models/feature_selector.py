@@ -3,6 +3,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_selection import VarianceThreshold, RFE
 import numpy as np
 import pandas as pd
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 class FeatureSelector(BaseEstimator, TransformerMixin):
     def __init__(self, 

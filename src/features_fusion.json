@@ -5,7 +5,8 @@
             "jour": ["1"],
             "crepuscule_aube": ["2"],
             "nocturne": ["3", "4", "5"]
-        }
+        },
+        "to_nan": ["-1"]
     },
     "atm":{
         "dtype": "category",
@@ -13,7 +14,8 @@
             "normale": ["1", "8"],
             "pluvieuses": ["2", "3"],
             "difficiles": ["4", "5", "6", "7", "9"]
-        }
+        },
+        "to_nan": ["-1"]
     },
     "col":{
         "dtype": "category",
@@ -21,7 +23,8 @@
             "sans_collision": ["7"],
             "deux_vl": ["1", "2", "3"],
             "autres": ["4", "5", "6"]
-        }
+        },
+        "to_nan": ["-1"]
     },
     "catr":{
         "dtype": "category",
@@ -37,28 +40,32 @@
         "modalities":{
             "simple": ["1", "2"],
             "complexe": ["3", "4"]
-        }
+        },
+        "to_nan": ["-1"]
     },
     "vosp":{
         "dtype": "category",
         "modalities":{
             "sans": ["0"],
             "avec": ["1", "2", "3"]
-        }
+        },
+        "to_nan": ["-1"]
     },
     "prof":{
         "dtype": "category",
         "modalities":{
             "plat": ["1"],
             "incline": ["2", "3", "4"]
-        }
+        },
+        "to_nan": ["-1"]
     },
     "plan":{
         "dtype": "category",
         "modalities":{
             "rectiligne": ["1"],
             "courbe": ["2", "3", "4"]
-        }
+        },
+        "to_nan": ["-1"]
     },
     "surf":{
         "dtype": "category",
@@ -66,7 +73,8 @@
             "normale": ["1"],
             "humide": ["2", "3", "4"],
             "autre": ["5", "6", "7", "8", "9"]
-        }
+        },
+        "to_nan": ["-1"]
     },
     "infra":{
         "dtype": "category",
@@ -74,7 +82,8 @@
             "aucun": ["0"],
             "routiers": ["1", "2", "3", "5"],
             "zones": ["4", "6", "7", "8", "9"]
-        }
+        },
+        "to_nan": ["-1"]
     },
     "situ":{
         "dtype": "category",
@@ -82,7 +91,8 @@
             "aucun": ["0"],
             "normale": ["1"],
             "particuliere": ["2", "3", "4", "5", "6", "8"]
-        }
+        },
+        "to_nan": ["-1"]
     },
     "place":{
         "dtype": "category",
@@ -91,7 +101,8 @@
             "pieton": ["10"],
             "passager_avant": ["6", "2"],
             "passager": ["3", "4", "5", "7", "8", "9"]
-        }
+        },
+        "to_nan": ["-1"]
     },
     "trajet":{
         "dtype": "category",
@@ -100,7 +111,8 @@
             "personnelle": ["3", "5"],
             "professionnelle": ["4"],
             "autre": ["9"]
-        }
+        },
+        "to_nan": ["0", "-1"]
     },
     "locp":{
         "dtype": "category",
@@ -108,7 +120,8 @@
             "sans": ["0"],
             "chaussee": ["1", "2", "3", "4"],
             "autre": ["5", "6", "7", "8"]
-        }
+        },
+        "to_nan": ["-1", "9"]
     },
     "senc":{
         "dtype": "category",
@@ -116,7 +129,8 @@
             "croissant": ["1"],
             "decroissant": ["2"],
             "inconnu": ["0", "3"]
-        }
+        },
+        "to_nan": ["-1"]
     },
     "catv":{
         "dtype": "category",
@@ -125,7 +139,8 @@
             "2rm": ["2", "30", "31", "32", "33", "34"],
             "vl": ["3", "7", "10", "35", "36", "41", "42", "43"],
             "pl": ["13", "14", "15", "16", "17", "20", "21", "37", "38", "39", "40", "99"]
-        }
+        },
+        "to_nan": ["-1", "0"]
     },
     "obs":{
         "dtype": "category",
@@ -133,7 +148,8 @@
             "aucun": ["0"],
             "structurel": ["1", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "14", "16", "15", "17"],
             "naturel": ["2", "13"]
-        }
+        },
+        "to_nan": ["-1"]
     },
     "obsm":{
         "dtype": "category",
@@ -142,13 +158,14 @@
             "pieton": ["1"],
             "vehicule": ["2", "4"],
             "autre": ["5", "6", "9"]
-        }
+        },
+        "to_nan": ["-1"]
     },
     "agg":{
-        "dtype": "category",
+        "dtype": "int64",
         "modalities":{
-            "non": ["1"],
-            "oui": ["2"]
+            "0": ["1"],
+            "1": ["2"]
         }
     },
     "int":{
@@ -157,14 +174,16 @@
             "aucun": ["1"],
             "simple": ["2", "3", "4"],
             "complexe": ["5", "6", "7", "8", "9"]
-        }
+        },
+        "to_nan": ["-1"]
     },
     "sexe":{
         "dtype": "category",
         "modalities":{
             "masculin": ["1"],
             "feminin": ["2"]
-        }
+        },
+        "to_nan": ["-1"]
     },
     "manv":{
         "dtype": "category",
@@ -174,7 +193,8 @@
             "changement_dir": ["10", "11", "12", "13", "14", "15", "16", "17", "18"],
             "particuliere": ["4", "19", "21", "22", "26"],
             "arret": ["20", "23", "24"]
-        }
+        },
+        "to_nan": ["-1", "0"]
     },
     "actp":{
         "dtype": "category",
@@ -183,7 +203,8 @@
             "traverse": ["3"],
             "autre": ["4", "5", "6", "A", "9", "7", "8"],
             "sans_objet": ["0"]
-        }
+        },
+        "to_nan": ["-1", "B", " -1"]
     },
     "catu":{
         "dtype": "category",

@@ -13,9 +13,9 @@ class DataConcatenator:
             if df_list:
                 concatenated_df = pd.concat(df_list, ignore_index=True)
 
-                # Logique spécifique après la concaténation des DataFrames usagers
+                # Logique spécifique après la concaténation des dataframes usagers
                 if prefix == "usagers" and "id_usager" in concatenated_df.columns:
-                    # Convertir les valeurs de 'id_usager' en chaînes de caractères pour vérifier les valeurs manquantes
+                    # On veut règler le problème de id_usager : il manque des valeurs
                     concatenated_df['id_usager'] = concatenated_df['id_usager'].astype(str)
                     concatenated_df['id_usager'] = pd.to_numeric(concatenated_df['id_usager'], errors='coerce')
                     missing_ids = concatenated_df['id_usager'].isna()
@@ -23,7 +23,7 @@ class DataConcatenator:
                     if missing_ids.any():
                         max_id = concatenated_df['id_usager'].max(skipna=True)
                         if pd.isna(max_id):
-                            max_id = 0  # Si toutes les valeurs sont NaN, commencer à partir de 1
+                            max_id = 0 
                         next_id = int(max_id) + 1
                         concatenated_df.loc[missing_ids, 'id_usager'] = range(next_id, next_id + missing_ids.sum())
                         self.logger.info(f"Valeurs manquantes de 'id_usager' remplies avec des valeurs uniques après concaténation pour {prefix}.")
