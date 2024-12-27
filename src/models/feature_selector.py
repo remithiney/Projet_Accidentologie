@@ -61,7 +61,7 @@ class FeatureSelector(BaseEstimator, TransformerMixin):
 
         X = self._remove_low_variance(X)
         X = self._select_by_importance(X, y)
-        X = self._remove_high_correlation(X)
+        #X = self._remove_high_correlation(X)
         #X = self._apply_rfe(X, y) 
 
         self.selected_features = X.columns
