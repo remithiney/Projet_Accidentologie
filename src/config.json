@@ -6,6 +6,8 @@
   "encodings": ["utf-8", "latin1", "ISO-8859-1"],
   "prefixes": ["caracteristiques", "lieux", "usagers", "vehicules"],
   "years": [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022],
+  "oldest_year": 1910,
+  "vma_cap": 130,
   "logs": "log.txt",
   "sweetviz_input_folder": "../data/raw",
   "sweetviz_output_folder": "../reports/vis",
@@ -15,7 +17,7 @@
     "caracteristiques": ["com", "adr", "lat", "long"],
     "lieux": ["voie", "v1", "v2", "larrout", "pr", "pr1", "nbv"],
     "usagers": ["etatp"],
-    "vehicules": ["occutc", "motor"]
+    "vehicules": ["occutc", "motor", "senc"]
   },
   "model_result_path": "reports/results.txt",
   "model_parameters": {
@@ -42,7 +44,7 @@
           "classifier__max_depth": [3, 6],
           "classifier__learning_rate": [0.01, 0.1],
           "classifier__subsample": [0.5, 1.0],
-          "classifier__colsample_bytree": [0.5, 1.0],
+          "classifier__colsample_bytree": [0.5, 1.0]
         }
       },
       "LightGBM": {

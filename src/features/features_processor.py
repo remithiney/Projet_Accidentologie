@@ -75,23 +75,37 @@ class FeaturesProcessor:
 
         # Traitement des colonnes spécifiques
         if 'an_nais' in dataframe.columns:
-            dataframe["an_nais"] = dataframe["an_nais"].replace(np.nan, "-1")
-            self.logger.info("an_nais: np.nan to -1.")
-
+            dataframe['an_nais'] = dataframe['an_nais'].clip(lower=self.config['oldest_year'], upper=self.config['years_to_process'][-1])
+            dataframe["an_nais"] = dataframe["an_nais"].replace(np.nan, dataframe["an_nais"].median())
+            self.logger.info(f"an_nais: np.nan to {dataframe['an_nais'].median()}")
+            dataframe['age'] = dataframe['an'] - dataframe["an_nais"].astype("int64")
+            dataframe['age'] = dataframe['age'].astype("int64")
+            self.logger.info(f"Variable age créee.")
+            
         if all(col in dataframe.columns for col in ['an', 'mois', 'jour']):
             # Convertir directement les colonnes 'an', 'mois', 'jour' en une date
-            dataframe['date'] = pd.to_datetime(dataframe[['an', 'mois', 'jour']].rename(columns={'an': 'year', 'mois': 'month', 'jour': 'day'}))
+            dataframe['an'] = dataframe['an'].clip(lower=self.config['years_to_process'][0], upper= self.config['years_to_process'][-1])
+            dataframe["an"] = dataframe["an"].replace(np.nan, dataframe["an"].median())
+            self.logger.info(f"an: np.nan to {dataframe['an_nais'].median()}")
+            dataframe['mois'] = dataframe['mois'].clip(lower= 1, upper= 12)
+            dataframe["mois"] = dataframe["mois"].replace(np.nan, dataframe["mois"].median())
+            self.logger.info(f"mois: np.nan to {dataframe['mois'].median()}")
+            dataframe['jour'] = dataframe['jour'].clip(lower= 1, upper= 31)
+            dataframe["jour"] = dataframe["jour"].replace(np.nan, dataframe["mois"].median())
+            self.logger.info(f"jour: np.nan to {dataframe['jour'].median()}")
+            dataframe['date'] = pd.to_datetime(dataframe[['an', 'mois', 'jour']].rename(columns={'an': 'year', 'mois': 'month', 'jour': 'day'}), errors='coerce')
+            self.logger.warning(dataframe[dataframe['date'].isna()][['an', 'mois', 'jour']])
             
             # Ajouter le jour de la semaine
             dataframe['jour_semaine'] = dataframe['date'].dt.day_name().astype("category")
-            dataframe.drop(columns=['an','date'], inplace= True)
+            dataframe.drop(columns=['date'], inplace= True)
         else:
             raise ValueError("Les colonnes nécessaires ('an', 'mois', 'jour') sont manquantes.")
 
 
         if 'vma' in dataframe.columns:
-            dataframe['vma'] = dataframe['vma'].clip(upper=130)
-            self.logger.info("Valeurs de la colonne 'vma' traitées : valeurs supérieures à 130 limitées à 130.")
+            dataframe['vma'] = dataframe['vma'].clip(upper=self.config['vma_cap'])
+            self.logger.info(f"Valeurs de la colonne 'vma' traitées : valeurs limitées à {self.config['vma_cap']}.")
 
         if "hrmn" in dataframe.columns:
             dataframe['hrmn'] = dataframe['hrmn'].astype(str)
@@ -114,9 +128,12 @@ class FeaturesProcessor:
             dataframe.drop(columns=['dep'], inplace=True)
 
         if 'grav' in dataframe.columns:
-            dataframe['grav'] = dataframe['grav'].replace(4, 1)  # Blessé léger = indemne
-            dataframe['grav'] = dataframe['grav'].replace(3, 2)  # Blessé grave = tué
+            #dataframe['grav'] = dataframe['grav'].replace(4, 0)
+            dataframe['grav'] = dataframe['grav'].replace(4, 1)  # on regroupe Blessé léger + indemne
+            dataframe['grav'] = dataframe['grav'].replace(3, 2)  # idem Blessé grave + tué
             dataframe['grav'] = dataframe['grav'].astype('int64')
+            dataframe = dataframe[dataframe['grav'] != -1] # On retire les fuyards
+            dataframe['grav'] = dataframe['grav'] - 1 # Ramener les modalités à 0 et 1
             self.logger.info("Prétraitement de la variable cible 'grav'.")
 
         print(dataframe.dtypes)
