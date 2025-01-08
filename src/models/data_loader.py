@@ -14,7 +14,7 @@ class DataLoader:
             data = pd.read_csv(file_path)
             data = data[data[target_column] > -1]
             X = data.drop(columns=[target_column])
-            y = data[target_column]-1 # Commencer à 0
+            y = data[target_column]
 
             if sample_ratio is not None:
                 _, X, _, y = train_test_split(X, y, test_size=sample_ratio, random_state=random_state, stratify=y)  

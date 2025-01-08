@@ -80,6 +80,7 @@ class FeaturesProcessor:
             self.logger.info(f"an_nais: np.nan to {dataframe['an_nais'].median()}")
             dataframe['age'] = dataframe['an'] - dataframe["an_nais"].astype("int64")
             dataframe['age'] = dataframe['age'].astype("int64")
+            dataframe.drop(columns=['an_nais'], inplace= True)
             self.logger.info(f"Variable age créee.")
             
         if all(col in dataframe.columns for col in ['an', 'mois', 'jour']):
