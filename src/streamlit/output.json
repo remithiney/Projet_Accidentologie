@@ -1,0 +1,420 @@
+{
+    "place": {
+        "type": "categorial",
+        "group": "usager",
+        "values": [
+            "conducteur",
+            "pieton",
+            "passager",
+            "passager_avant"
+        ]
+    },
+    "catu": {
+        "type": "categorial",
+        "group": "usager",
+        "values": [
+            "en_vehicule",
+            "pieton"
+        ]
+    },
+    "sexe": {
+        "type": "categorial",
+        "group": "usager",
+        "values": [
+            "masculin",
+            "feminin"
+        ]
+    },
+    "trajet": {
+        "type": "categorial",
+        "group": "usager",
+        "values": [
+            "personnelle",
+            "domicile",
+            "professionnelle",
+            "autre"
+        ]
+    },
+    "locp": {
+        "type": "categorial",
+        "group": "usager",
+        "values": [
+            "chaussee",
+            "sans",
+            "autre"
+        ]
+    },
+    "actp": {
+        "type": "categorial",
+        "group": "usager",
+        "values": [
+            "traverse",
+            "sans_objet",
+            "autre",
+            "axe"
+        ]
+    },
+    "catv": {
+        "type": "categorial",
+        "group": "vehicule",
+        "values": [
+            "vl",
+            "2rm",
+            "cycle_edp",
+            "pl"
+        ]
+    },
+    "obs": {
+        "type": "categorial",
+        "group": "vehicule",
+        "values": [
+            "aucun",
+            "naturel",
+            "structurel"
+        ]
+    },
+    "obsm": {
+        "type": "categorial",
+        "group": "vehicule",
+        "values": [
+            "vehicule",
+            "pieton",
+            "aucun",
+            "autre"
+        ]
+    },
+    "manv": {
+        "type": "categorial",
+        "group": "vehicule",
+        "values": [
+            "changement_dir",
+            "ligne_droite",
+            "particuliere",
+            "atypique",
+            "arret"
+        ]
+    },
+    "jour": {
+        "type": "numerical",
+        "group": "contexte",
+        "values": [
+            1,
+            31
+        ]
+    },
+    "mois": {
+        "type": "numerical",
+        "group": "contexte",
+        "values": [
+            1,
+            12
+        ]
+    },
+    "lum": {
+        "type": "categorial",
+        "group": "contexte",
+        "values": [
+            "jour",
+            "crepuscule_aube",
+            "nocturne"
+        ]
+    },
+    "agg": {
+        "type": "numerical",
+        "group": "contexte",
+        "values": [
+            0,
+            1
+        ]
+    },
+    "int": {
+        "type": "categorial",
+        "group": "contexte",
+        "values": [
+            "simple",
+            "complexe",
+            "aucun"
+        ]
+    },
+    "atm": {
+        "type": "categorial",
+        "group": "contexte",
+        "values": [
+            "normale",
+            "difficiles",
+            "pluvieuses"
+        ]
+    },
+    "col": {
+        "type": "categorial",
+        "group": "autre",
+        "values": [
+            "deux_vl",
+            "autres",
+            "sans_collision"
+        ]
+    },
+    "catr": {
+        "type": "categorial",
+        "group": "contexte",
+        "values": [
+            "route_secondaire",
+            "route_urbaine",
+            "autre",
+            "route_principale"
+        ]
+    },
+    "circ": {
+        "type": "categorial",
+        "group": "contexte",
+        "values": [
+            "simple",
+            "complexe"
+        ]
+    },
+    "vosp": {
+        "type": "categorial",
+        "group": "contexte",
+        "values": [
+            "sans",
+            "avec"
+        ]
+    },
+    "prof": {
+        "type": "categorial",
+        "group": "contexte",
+        "values": [
+            "plat",
+            "incline"
+        ]
+    },
+    "plan": {
+        "type": "categorial",
+        "group": "contexte",
+        "values": [
+            "rectiligne",
+            "courbe"
+        ]
+    },
+    "surf": {
+        "type": "categorial",
+        "group": "contexte",
+        "values": [
+            "normale",
+            "humide",
+            "autre"
+        ]
+    },
+    "infra": {
+        "type": "categorial",
+        "group": "contexte",
+        "values": [
+            "aucun",
+            "routiers",
+            "zones"
+        ]
+    },
+    "situ": {
+        "type": "categorial",
+        "group": "contexte",
+        "values": [
+            "normale",
+            "particuliere"
+        ]
+    },
+    "vma": {
+        "type": "numerical",
+        "group": "contexte",
+        "values": [
+            0,
+            130
+        ]
+    },
+    "nb_v": {
+        "type": "numerical",
+        "group": "contexte",
+        "values": [
+            1,
+            25
+        ]
+    },
+    "nb_u": {
+        "type": "numerical",
+        "group": "contexte",
+        "values": [
+            1,
+            39
+        ]
+    },
+    "age": {
+        "type": "numerical",
+        "group": "usager",
+        "values": [
+            0,
+            110
+        ]
+    },
+    "jour_semaine": {
+        "type": "categorial",
+        "group": "contexte",
+        "values": [
+            "Saturday",
+            "Thursday",
+            "Friday",
+            "Wednesday",
+            "Tuesday",
+            "Monday",
+            "Sunday"
+        ]
+    },
+    "hr": {
+        "type": "numerical",
+        "group": "contexte",
+        "values": [
+            0,
+            23
+        ]
+    },
+    "reg": {
+        "type": "categorial",
+        "group": "contexte",
+        "values": [
+            "Ile-de-France",
+            "Normandie",
+            "Grand Est",
+            "Nouvelle-Aquitaine",
+            "Hauts-de-France",
+            "Bretagne",
+            "Occitanie",
+            "Auvergne-Rh\u00f4ne-Alpes",
+            "Provence-Alpes-C\u00f4te d'Azur",
+            "Pays de la Loire",
+            "Centre-Val de Loire",
+            "Nouvelle-Cal\u00e9donie",
+            "Guadeloupe",
+            "Martinique",
+            "Mayotte",
+            "La R\u00e9union",
+            "Bourgogne-Franche-Comt\u00e9",
+            "Corse",
+            "Guyane",
+            "Polyn\u00e9sie Fran\u00e7aise",
+            "Saint-Pierre-et-Miquelon",
+            "Saint-Barth\u00e9lemy",
+            "Saint-Martin",
+            "Wallis-et-Futuna"
+        ]
+    },
+    "has_ceinture": {
+        "type": "numerical",
+        "group": "usager",
+        "values": [
+            0,
+            1
+        ]
+    },
+    "has_gants": {
+        "type": "numerical",
+        "group": "usager",
+        "values": [
+            0,
+            1
+        ]
+    },
+    "has_casque": {
+        "type": "numerical",
+        "group": "usager",
+        "values": [
+            0,
+            1
+        ]
+    },
+    "has_airbag": {
+        "type": "numerical",
+        "group": "usager",
+        "values": [
+            0,
+            1
+        ]
+    },
+    "has_gilet": {
+        "type": "numerical",
+        "group": "usager",
+        "values": [
+            0,
+            1
+        ]
+    },
+    "has_de": {
+        "type": "numerical",
+        "group": "usager",
+        "values": [
+            0,
+            1
+        ]
+    },
+    "choc_avant": {
+        "type": "numerical",
+        "group": "vehicule",
+        "values": [
+            0,
+            1
+        ]
+    },
+    "choc_arriere": {
+        "type": "numerical",
+        "group": "vehicule",
+        "values": [
+            0,
+            1
+        ]
+    },
+    "choc_gauche": {
+        "type": "numerical",
+        "group": "vehicule",
+        "values": [
+            0,
+            1
+        ]
+    },
+    "choc_droit": {
+        "type": "numerical",
+        "group": "vehicule",
+        "values": [
+            0,
+            1
+        ]
+    },
+    "imply_cycle_edp":{
+        "type": "numerical",
+        "group": "contexte",
+        "values": [
+            0,
+            1
+        ]
+    },
+    "imply_2rm":{
+        "type": "numerical",
+        "group": "contexte",
+        "values": [
+            0,
+            1
+        ]
+    },
+    "imply_vl":{
+        "type": "numerical",
+        "group": "contexte",
+        "values": [
+            0,
+            1
+        ]
+    },
+    "imply_pl":{
+        "type": "numerical",
+        "group": "contexte",
+        "values": [
+            0,
+            1
+        ]
+    }
+}

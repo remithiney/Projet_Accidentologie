@@ -19,51 +19,20 @@
     "usagers": ["etatp"],
     "vehicules": ["occutc", "motor", "senc"]
   },
+  "columns_to_drop_at_loading": ["an", "an_nais", "tpc", "jour"],
+  "columns_context": ["jour", "mois", "lum", "agg", "int", "atm", "catr", "circ", "vosp", "prof", "plan", "surf", "infra", "situ", "vma", "jour_semaine", "hr", "reg", "imply_cycle_edp", "imply_2rm", "imply_vl", "imply_pl"],
+  "columns_vehicle": ["catv", "obs", "obsm", "choc_avant", "choc_arriere", "choc_droit", "choc_gauche", "manv"],
+  "columns_user": ["place", "catu", "sexe", "age", "trajet", "has_ceinture", "has_casque", "has_airbag", "has_gilet", "has_de", "locp", "actp"],
   "model_result_path": "reports/results.txt",
+  "model_joblib_path": "models/joblib",
   "model_parameters": {
     "feature_selection": {
-      "variance_threshold": [0.01],
-      "importance_threshold": [0.01],
-      "correlation_threshold": [0.9]
+      "variance_threshold": 0.01,
+      "importance_threshold": 0.01,
+      "correlation_threshold": 0.9
     },
-    "decision_thresholds": [0.5],
-    "scoring_metrics": ["f1"],
-    "models": {
-      "RandomForest": {
-        "params": {
-          "classifier__n_estimators": [100, 300, 500],
-          "classifier__max_depth": [10, 50, null],
-          "classifier__min_samples_split": [2, 10],
-          "classifier__min_samples_leaf": [1, 4],
-          "classifier__class_weight": ["balanced"]
-        }
-      },
-      "XGBoost": {
-        "params": {
-          "classifier__n_estimators": [100, 300],
-          "classifier__max_depth": [3, 6],
-          "classifier__learning_rate": [0.01, 0.1],
-          "classifier__subsample": [0.5, 1.0],
-          "classifier__colsample_bytree": [0.5, 1.0]
-        }
-      },
-      "LightGBM": {
-        "params": {
-          "classifier__num_leaves": [31, 100],
-          "classifier__max_depth": [-1, 20],
-          "classifier__learning_rate": [0.01, 0.1],
-          "classifier__n_estimators": [100, 300],
-          "classifier__class_weight": ["balanced"]
-        }
-      },
-      "LogisticRegression": {
-        "params": {
-          "classifier__penalty": ["l2"],
-          "classifier__C": [0.1, 1, 10],
-          "classifier__solver": ["liblinear", "saga"],
-          "classifier__class_weight": ["balanced"]
-        }
-      }
+    "scoring_metrics": ["precision_weighted"],
+    "model": {
     }
   }
 }

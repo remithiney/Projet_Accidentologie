@@ -66,6 +66,56 @@ class FeaturesProcessor:
             dataframe['nb_u'] = dataframe.groupby('Num_Acc')['id_usager'].transform('nunique').astype('int64')
             self.logger.info("Colonne 'nb_u' ajoutée, indiquant le nombre d'usagers impliqués dans chaque accident.")
 
+        # Colonnes implies
+        for col in ['imply_cycle_edp', 'imply_2rm', 'imply_vl', 'imply_pl']:
+            dataframe[col] = 0
+
+        # Pour chaque catégorie, créer une colonne binaire et compter
+        dataframe['is_cycle_edp'] = (dataframe['catv'] == 'cycle_edp').astype(int)
+        dataframe['is_2rm']      = (dataframe['catv'] == '2rm').astype(int)
+        dataframe['is_vl']       = (dataframe['catv'] == 'vl').astype(int)
+        dataframe['is_pl']       = (dataframe['catv'] == 'pl').astype(int)
+
+        # Obtenir le nombre total par accident
+        dataframe['count_cycle_edp'] = dataframe.groupby('Num_Acc')['is_cycle_edp'].transform('sum')
+        dataframe['count_2rm']       = dataframe.groupby('Num_Acc')['is_2rm'].transform('sum')
+        dataframe['count_vl']        = dataframe.groupby('Num_Acc')['is_vl'].transform('sum')
+        dataframe['count_pl']        = dataframe.groupby('Num_Acc')['is_pl'].transform('sum')
+
+        # Déterminer l’implication
+        dataframe['imply_cycle_edp'] = (
+            # Si je suis moi-même cycle_edp, il faut que count_cycle_edp > 1
+            ((dataframe['catv'] == 'cycle_edp') & (dataframe['count_cycle_edp'] > 1)) |
+            # Sinon, si je ne suis pas cycle_edp, il faut que count_cycle_edp > 0
+            ((dataframe['catv'] != 'cycle_edp') & (dataframe['count_cycle_edp'] > 0))
+        ).astype(int)
+
+        # Faire la même chose pour 2rm, vl, pl
+        dataframe['imply_2rm'] = (
+            ((dataframe['catv'] == '2rm') & (dataframe['count_2rm'] > 1)) |
+            ((dataframe['catv'] != '2rm') & (dataframe['count_2rm'] > 0))
+        ).astype(int)
+
+        dataframe['imply_vl'] = (
+            ((dataframe['catv'] == 'vl') & (dataframe['count_vl'] > 1)) |
+            ((dataframe['catv'] != 'vl') & (dataframe['count_vl'] > 0))
+        ).astype(int)
+
+        dataframe['imply_pl'] = (
+            ((dataframe['catv'] == 'pl') & (dataframe['count_pl'] > 1)) |
+            ((dataframe['catv'] != 'pl') & (dataframe['count_pl'] > 0))
+        ).astype(int)
+
+        # Nettoyage : on peut supprimer les colonnes intermédiaires si on veut
+        dataframe.drop([
+            'is_cycle_edp', 'is_2rm', 'is_vl', 'is_pl',
+            'count_cycle_edp', 'count_2rm', 'count_vl', 'count_pl'
+        ], axis=1, inplace=True)
+
+        
+        self.logger.info("Colonnes 'imply_cycle_edp', 'imply_2rm', 'imply_vl', 'imply_pl' ajoutées.")
+
+
         # Supprimer les colonnes 'num_veh', 'id_usager', 'id_vehicule', 'Num_Acc'.
         columns_to_drop = ['num_veh', "num_veh_x", "num_veh_y", 'id_usager', 'id_vehicule', 'Num_Acc']
         columns_existing = [col for col in columns_to_drop if col in dataframe.columns]
@@ -80,7 +130,7 @@ class FeaturesProcessor:
             self.logger.info(f"an_nais: np.nan to {dataframe['an_nais'].median()}")
             dataframe['age'] = dataframe['an'] - dataframe["an_nais"].astype("int64")
             dataframe['age'] = dataframe['age'].astype("int64")
-            dataframe.drop(columns=['an_nais'], inplace= True)
+            #dataframe.drop(columns=['an_nais'], inplace= True)
             self.logger.info(f"Variable age créee.")
             
         if all(col in dataframe.columns for col in ['an', 'mois', 'jour']):
