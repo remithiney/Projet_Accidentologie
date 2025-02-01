@@ -12,7 +12,6 @@ from sklearn.model_selection import train_test_split, RandomizedSearchCV, Strati
 from sklearn.metrics import confusion_matrix, classification_report, roc_curve, auc, precision_recall_curve, accuracy_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
-from XGBTrainer import XGBTrainer
 
 import xgboost as xgb 
 import numpy as np
@@ -45,9 +44,10 @@ _REPLACE_CAT_STRATEGY = "most_frequent"
 _RANDOMIZED_SEARCH_ITER = 10
 _RANDOMIZED_SEARCH_SCORING = "balanced_accuracy"
 #_DO_LAST_CV = False
-_TRESHOLD_PROBA = 0.60
-_CHOSEN_MODEL_NAME = "xgboost"
+_TRESHOLD_PROBA = 0.6
+_CHOSEN_MODEL_NAME = "random_forest"
 _MODEL_FILENAME = f"../models/{_CHOSEN_MODEL_NAME}_{_TRESHOLD_PROBA}.joblib"
+_COL_TO_DROP = ['an','tpc',"an_nais"]
 
 
 
@@ -96,6 +96,8 @@ model_configs = {
 data = pd.read_csv(_FILE_PATH)
 X = data.drop(columns=['grav'])
 y = data['grav']
+
+X.drop(columns=_COL_TO_DROP, inplace=True)
 
 numerical_columns = X.select_dtypes(include=_NUMERICAL_TYPES).columns.tolist()
 categorical_columns = X.select_dtypes(include=_CATEGORICAL_TYPES).columns.tolist()

@@ -39,8 +39,8 @@
         "type": "categorial",
         "group": "usager",
         "values": [
-            "chaussee",
             "sans",
+            "chaussee",
             "autre"
         ]
     },
@@ -48,8 +48,8 @@
         "type": "categorial",
         "group": "usager",
         "values": [
-            "traverse",
             "sans_objet",
+            "traverse",
             "autre",
             "axe"
         ]
@@ -77,9 +77,9 @@
         "type": "categorial",
         "group": "vehicule",
         "values": [
+            "aucun",
             "vehicule",
             "pieton",
-            "aucun",
             "autre"
         ]
     },
@@ -87,8 +87,8 @@
         "type": "categorial",
         "group": "vehicule",
         "values": [
-            "changement_dir",
             "ligne_droite",
+            "changement_dir",
             "particuliere",
             "atypique",
             "arret"
@@ -131,9 +131,9 @@
         "type": "categorial",
         "group": "contexte",
         "values": [
+            "aucun",
             "simple",
-            "complexe",
-            "aucun"
+            "complexe"
         ]
     },
     "atm": {
@@ -258,12 +258,12 @@
         "type": "categorial",
         "group": "contexte",
         "values": [
-            "Saturday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
             "Thursday",
             "Friday",
-            "Wednesday",
-            "Tuesday",
-            "Monday",
+            "Saturday",
             "Sunday"
         ]
     },
