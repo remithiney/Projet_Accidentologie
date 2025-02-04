@@ -80,7 +80,7 @@ if st.button("Soumettre"):
     for col in required_columns:
         if col in user_inputs:
             final_data[col] = (
-                int(user_inputs[col]) if isinstance(user_inputs[col], bool)  # Convertir checkbox en 0/1
+                int(user_inputs[col]) if isinstance(user_inputs[col], bool)
                 else user_inputs[col]
             )
         else:
@@ -94,17 +94,12 @@ if st.button("Soumettre"):
 
     # Convertir les données en DataFrame pour la prédiction
     input_df = pd.DataFrame([final_data])
-    
-    # Afficher le DataFrame pour vérification (optionnel)
     st.write("Données saisies :", input_df)
 
     # Calculer la probabilité de la classe 1
     proba = model_pipeline.predict_proba(input_df)[:, 1][0]
-
-    # Appliquer le seuil pour obtenir la prédiction binaire
     prediction = 1 if proba >= seuil else 0
 
-    # Créer un cadre visuel personnalisé pour afficher les résultats
     result_html = f"""
     <div style="
         background-color: #e6f7ff;
