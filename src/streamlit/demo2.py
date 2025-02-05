@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 # Chemin du dossier contenant les modèles
 MODEL_DIR = "../models/"
-MODELS = ["xgboost_0.6.joblib", "RandomForest-precision_weighted.joblib"]
+MODELS = ["xgboost_0.6.joblib", "random_forest_0.6.joblib"]
 
 current_path = os.getcwd()
 print(f"Le chemin courant est : {current_path}")

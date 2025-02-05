@@ -45,7 +45,7 @@ _RANDOMIZED_SEARCH_ITER = 30
 _RANDOMIZED_SEARCH_SCORING = "accuracy"
 #_DO_LAST_CV = False
 _TRESHOLD_PROBA = 0.6
-_CHOSEN_MODEL_NAME = "xgboost"
+_CHOSEN_MODEL_NAME = "random_forest"
 _MODEL_FILENAME = f"../models/{_CHOSEN_MODEL_NAME}_{_TRESHOLD_PROBA}.joblib"
 _COL_TO_DROP = ['an','tpc',"an_nais"]
 
